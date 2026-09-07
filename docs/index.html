@@ -20,7 +20,7 @@
     </div>
     <nav>
       <a href="#hallazgos">Comparación</a>
-      <a href="#metodos">Método</a>
+      <a href="#metodos">Cómo se leyó</a>
       <a href="#mapa">Mapa</a>
       <a href="#graficos">Gráficos</a>
       <a href="#sondajes">Sondajes</a>
@@ -31,16 +31,15 @@
 
   <main>
     <section class="hero wrap">
-      <span class="kicker">Nota de comparación</span>
-      <h1>Alteración IOCG en el Gawler oriental: el informe de 2013 y el balance mineral</h1>
+      <span class="kicker">Comparación</span>
+      <h1>Qué dice el informe de 2013 y qué calcula el balance mineral</h1>
       <p class="lede">
-        Fabris y colaboradores (2013) describen la alteración asociada a mineralización
-        estilo IOCG en el este del Cratón Gawler a partir de geoquímica de roca total,
-        espectroscopia HyLogger y petrofísica. Sobre las mismas 1 225 muestras de 43
-        sondajes, el archivo <code>Resultado_Balance_Mineral.csv</code> —obtenido en
-        <a href="https://geoia.site/balance/">geoia.site/balance</a>— estima modos
-        minerales por BVLS y una zonación química. Esta página resume dónde ambas
-        lecturas coinciden y dónde divergen.
+        En 2013, Fabris y su equipo estudiaron la alteración de rocas con cobre y oro
+        en el este del Cratón Gawler. Usaron análisis químicos, un espectrómetro de
+        testigo (HyLogger) y medidas de qué tan magnética es la roca.
+        El archivo <code>Resultado_Balance_Mineral.csv</code> sale del módulo
+        <a href="https://geoia.site/balance/">geoia.site/balance</a>: a partir de la
+        misma química estima cuánto hay de cada mineral. Aquí se comparan las dos lecturas.
       </p>
       <p>
         <a class="pdf-btn" href="RB201300014.pdf">Leer el informe PDF (21 MB)</a>
@@ -57,40 +56,37 @@
       <h2>Comparación</h2>
       <div class="grid-2">
         <article class="card same prose">
-          <h3>Coincidencias</h3>
+          <h3>En qué coinciden</h3>
           <p>
-            Ambas fuentes describen el mismo conjunto: 1 225 intervalos en 43 sondajes
-            de la provincia Olímpica Cu-Au. El espectro SWIR está dominado por mica blanca
-            (529 muestras) y clorita (366). Predomina fengita sobre moscovita (325 frente
-            a 204) y clorita Fe-rica (306), en línea con las observaciones regionales del
-            informe sobre Wallaroo, Donington y Gawler Range Volcanics alterados.
+            Las dos fuentes miran las mismas 1 225 muestras de 43 sondajes.
+            En el espectro, lo más frecuente es mica blanca (sericita, 529 muestras)
+            y clorita (366). Hay más fengita que moscovita, y la clorita suele ser
+            rica en hierro: eso ya lo decía el informe.
           </p>
           <p>
-            El diagrama GER se comprime hacia Na/Al bajo: cerca del 80 % de las muestras
-            están deplecionadas en sodio. En cobre, el 90 % de los intervalos con
-            Cu &gt; 270 ppm cae en la ventana w2200 de 2206–2221 nm, y el 97 % tiene
-            w2250 &gt; 2246 nm, como en las Figs. 20 y 23. El hierro metasomático es
-            igualmente claro: el 38 % de las muestras tiene Fe &gt; 10 %, y la suma
-            magnetita + hematita del balance correlaciona con Fe total (r = 0,98).
+            Casi 8 de cada 10 muestras perdieron sodio. Donde hay más cobre
+            (más de 270 ppm), la mica suele tener su banda cerca de 2206–2221 nm
+            (90 % de los casos) y la clorita cerca de 2246 nm o más (97 %).
+            El hierro también encaja: si la química marca mucho Fe, el balance
+            calcula más magnetita y hematita (r = 0,98).
           </p>
         </article>
         <article class="card diff prose">
-          <h3>Discrepancias</h3>
+          <h3>En qué no coinciden</h3>
           <p>
-            HyLogger no registra cuarzo ni K-feldespato. El balance sí: en promedio,
-            32 % de cuarzo y 17 % de feldespato potásico. Ese feldespato es la fase
-            de mayor masa en 484 muestras, frente a solo 81 en el campo GER del
-            informe; el ratio K/Al de la sericita (1:3) oculta K-feldespato coexistente.
+            El espectrómetro no ve cuarzo ni feldespato potásico. El balance sí:
+            en promedio un 32 % de cuarzo y un 17 % de feldespato. Por eso el
+            feldespato es el mineral principal en 484 muestras, y el informe
+            solo lo marca en 81.
           </p>
           <p>
-            La magnetita es el desacuerdo más marcado. MagSus &gt; 5000 —umbral del
-            informe, cercano a ~1 % de magnetita— identifica 51 muestras; el modelo
-            asigna magnetita &gt; 5 % en 430. La correlación MagSus–magnetita es débil
-            (r = 0,40): el Fe se reparte entre magnetita y hematita sin ancla magnética.
-            Familia TSA y familia de masa coinciden apenas en el 33 % de las muestras
-            comparables. Además, el CSV etiqueta alteración al estilo pórfido y deja
-            indefinido el 58 %; el informe habla de ensamblajes IOCG. De 510 muestras
-            con z-score, el 61 % es concordante entre química y espectro.
+            La magnetita es el mayor desacuerdo. El informe la infiere con la
+            <strong>susceptibilidad magnética</strong> (qué tan magnética es la
+            muestra): 51 superan el umbral. El balance, usando solo el hierro
+            químico, pone más de 5 % de magnetita en 430 muestras. El espectro
+            y el balance eligen el mismo mineral principal solo en 1 de cada 3
+            muestras. Además, el informe habla de mezclas tipo IOCG; GeoIA usa
+            nombres de pórfido y deja sin clasificar el 58 %.
           </p>
         </article>
       </div>
@@ -98,85 +94,83 @@
         <table class="stats">
           <thead>
             <tr>
-              <th>Indicador</th>
-              <th>Informe / espectro</th>
-              <th>Balance de masa</th>
+              <th>Qué se compara</th>
+              <th>Informe 2013</th>
+              <th>Balance (GeoIA)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>K-feldespato dominante</td>
-              <td>81 muestras (campo GER)</td>
+              <td>Feldespato potásico como mineral principal</td>
+              <td>81 muestras</td>
               <td>484 muestras</td>
             </tr>
             <tr>
               <td>Magnetita</td>
-              <td>51 con MagSus &gt; 5000</td>
-              <td>430 con M_Magnetita &gt; 5 %</td>
+              <td>51 muestras muy magnéticas</td>
+              <td>430 con más de 5 %</td>
             </tr>
             <tr>
-              <td>Acuerdo TSA–familia de masa</td>
-              <td colspan="2">32,7 % (n = 1 059 comparables)</td>
+              <td>¿Mismo mineral principal?</td>
+              <td colspan="2">Coincide en el 33 % de las muestras</td>
             </tr>
             <tr>
-              <td>Clase química</td>
-              <td>Ensamblajes IOCG (sericita–Fe-óxido, clorita–magnetita…)</td>
-              <td>58 % «Indefinida»; resto tipo pórfido</td>
+              <td>Cómo se nombra la alteración</td>
+              <td>Mezclas IOCG (sericita + óxido de Fe, clorita + magnetita…)</td>
+              <td>58 % sin clasificar; el resto tipo pórfido</td>
             </tr>
             <tr>
-              <td>Concordancia química–espectro</td>
-              <td>No cuantificada por muestra en 2013</td>
-              <td>60,8 % (n = 510)</td>
+              <td>¿Química y espectro dicen lo mismo?</td>
+              <td>No se midió muestra a muestra</td>
+              <td>Sí en el 61 % de 510 muestras</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p class="callout">
-        En conjunto, el balance confirma el esquema hidrotermal del informe —pérdida
-        de Na, ganancia de Fe, fengita y clorita férrica, y las ventanas espectrales
-        hacia Cu— y cuantifica fases que el SWIR no ve. Diverge cuando debe elegir
-        entre magnetita y hematita, o cuando se le pide un único mineral dominante
-        para una muestra mezclada.
+        En corto: el balance confirma la historia del informe (se pierde sodio,
+        entra hierro, hay mica y clorita, y el cobre se asocia a ciertas bandas
+        del espectro) y pone números a minerales que el espectrómetro no ve.
+        Se apartan cuando hay que decidir si el hierro es magnetita o hematita,
+        o cuando una muestra mezclada se resume en un solo mineral.
       </p>
     </section>
 
     <section class="section wrap" id="metodos">
-      <h2>Método</h2>
+      <h2>Cómo se leyó cada fuente</h2>
       <p class="lede" style="max-width:70ch; margin-bottom:18px">
-        No se trata de dos campañas distintas, sino de dos formas de leer las mismas
-        muestras. El informe combina geoquímica, espectro y petrofísica para nombrar
-        ensamblajes y proponer vectores. El CSV convierte esa geoquímica en porcentajes
-        minerales.
+        No son dos campañas distintas: son dos formas de mirar las mismas muestras.
+        El informe nombra la alteración. El CSV calcula porcentajes de minerales.
       </p>
       <div class="card methods">
         <table>
           <thead>
             <tr>
               <th></th>
-              <th>Fabris et al. (2013)</th>
+              <th>Informe de 2013</th>
               <th>Balance mineral (GeoIA)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Datos de partida</td>
-              <td>Geoquímica de roca total, HyLogger VNIR–SWIR (±TIR), MagSus y densidad</td>
-              <td>La misma geoquímica, ajustada por BVLS a 34 minerales en <a href="https://geoia.site/balance/">geoia.site/balance</a></td>
+              <td>Qué usa</td>
+              <td>Química de la roca, espectrómetro de testigo y susceptibilidad magnética</td>
+              <td>La misma química, convertida a % de 34 minerales en <a href="https://geoia.site/balance/">geoia.site/balance</a></td>
             </tr>
             <tr>
-              <td>Clasificación</td>
-              <td>Campos molares K/Al–Na/Al, mineral TSA y MagSus &gt; 5000</td>
-              <td>Z-scores fílica, argílica, propilítica y potásica, más modos en % peso</td>
+              <td>Cómo clasifica</td>
+              <td>Relación potasio/aluminio y sodio/aluminio, mineral del espectro y umbral magnético</td>
+              <td>Nombres tipo pórfido (fílica, argílica, propilítica, potásica) y % de cada mineral</td>
             </tr>
             <tr>
-              <td>Producto</td>
-              <td>Ensamblajes cualitativos y umbrales de la Tabla 4</td>
-              <td>Modos (magnetita, hematita, moscovita, clorita, K-feldespato, cuarzo, …)</td>
+              <td>Qué entrega</td>
+              <td>Nombres de mezclas y una lista de elementos anómalos (Tabla 4)</td>
+              <td>Porcentajes: magnetita, hematita, mica, clorita, feldespato, cuarzo…</td>
             </tr>
             <tr>
-              <td>Alcance</td>
-              <td>Contexto de sistema mineral y vectores de exploración; no entrega modos</td>
-              <td>Cantidades comparables entre sondajes; el ajuste puede ser degenerado (p. ej. magnetita vs hematita)</td>
+              <td>Límite</td>
+              <td>No da cantidades; el espectro no ve feldespato ni cuarzo</td>
+              <td>Puede confundir magnetita con hematita si solo mira el hierro</td>
             </tr>
           </tbody>
         </table>
@@ -185,7 +179,7 @@
 
     <section class="section wrap" id="mapa">
       <h2>Ubicación de los sondajes</h2>
-      <p class="note">Cada punto corresponde a un sondaje, coloreado por el índice geoquímico de la Tabla 4 (número de elementos anómalos a 10× corteza). Un clic abre el pozo.</p>
+      <p class="note">Cada punto es un sondaje. El color es cuántos elementos químicos salen anómalos (Tabla 4 del informe). Un clic abre el pozo.</p>
       <div id="map"></div>
       <div class="fig-row" style="margin-top:18px">
         <div>
@@ -198,93 +192,103 @@
           <div class="fig-frame">
             <img src="assets/figs/fig17_mica_composicion.png" alt="Variación composicional de mica blanca y posición del feature AlOH" />
           </div>
-          <p class="fig-cap">Figura 17: la posición del feature ~2200 nm distingue moscovita (corta) de fengita (larga). Informe y CSV usan el mismo w2200.</p>
+          <p class="fig-cap">Figura 17: la posición de la banda cerca de 2200 nm distingue moscovita (más corta) de fengita (más larga).</p>
         </div>
       </div>
     </section>
 
     <section class="section wrap" id="graficos">
-      <h2>Diagramas del informe, recreados con el CSV</h2>
-      <p class="note">A la izquierda, la recreación a partir del CSV actualizado. A la derecha, la figura original, para comparación visual.</p>
+      <h2>Los diagramas del informe, recreados con el CSV</h2>
+      <p class="note">A la izquierda, la recreación. A la derecha, la figura original. Los ejes coinciden con el informe: lo que iba en X sigue en X.</p>
 
-      <h3>Diagrama GER K/Al vs Na/Al</h3>
+      <h3>Potasio y sodio respecto al aluminio</h3>
       <div class="grid-2">
         <div class="card">
           <div id="ger" class="chart"></div>
-          <p class="fig-cap">El color indica la familia dominante del balance (sin cuarzo). Los campos molares siguen a Fabris et al. (§4.2.1).</p>
+          <p class="fig-cap">Color = mineral principal del balance (sin cuarzo). Eje X: sodio/aluminio. Eje Y: potasio/aluminio.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: campos de K-feldespato, moscovita, clorita y albita" />
           </div>
-          <p class="fig-cap">Figura 8 del informe. La nube se comprime hacia Na/Al bajo, con una cola hacia albita. Las coordenadas de la izquierda se calculan a partir de Na₂O y Al₂O₃, como en ioGAS.</p>
+          <p class="fig-cap">Figura 8 del informe. La nube se junta a la izquierda (poco sodio). Una cola baja va hacia albita.</p>
         </div>
       </div>
 
-      <h3 style="margin-top:32px">Fe vs Al y mineral SWIR</h3>
+      <h3 style="margin-top:32px">El mismo diagrama, coloreado por el espectro</h3>
       <div class="grid-2">
         <div class="card">
-          <div id="feal" class="chart"></div>
-          <p class="fig-cap">El desplazamiento hacia Fe alto corresponde a la alteración férrica regional. El color es el grupo TSA (HyLogger).</p>
+          <div id="gertsa" class="chart"></div>
+          <p class="fig-cap">Mismos ejes que la figura de al lado. El color ahora es el mineral que vio el espectrómetro, no el del balance.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig12_espectral_geoquimica.png" alt="Figura 12: clasificación combinada espectral y geoquímica" />
           </div>
-          <p class="fig-cap">Figura 12: el informe combina TSA y geoquímica para nombrar ensamblajes. El CSV añade la cuantificación de modos.</p>
+          <p class="fig-cap">Figura 12 del informe: el mismo diagrama de sodio y potasio, con colores del espectro.</p>
         </div>
       </div>
 
-      <h3 style="margin-top:32px">Vectores a cobre: w2200 y w2250</h3>
+      <h3 style="margin-top:32px">Hierro frente a aluminio</h3>
+      <div class="card">
+        <div id="feal" class="chart"></div>
+        <p class="fig-cap">Eje X: aluminio. Eje Y: hierro. Las muestras que suben (mucho Fe, poco Al) son las más alteradas por hierro. Color = mineral del espectro.</p>
+      </div>
+
+      <h3 style="margin-top:32px">Cobre y la banda de la mica (~2200 nm)</h3>
       <div class="grid-2">
         <div class="card">
           <div id="cuw22" class="chart"></div>
-        </div>
-        <div class="card">
-          <div id="cuw25" class="chart"></div>
-        </div>
-      </div>
-      <div class="fig-row" style="margin-top:12px">
-        <div>
-          <div class="fig-frame"><img src="assets/figs/fig20_cu_w2200.png" alt="Figura 20: Cu versus w2200" /></div>
-          <p class="fig-cap">Figura 20 del informe. Ventana 2206–2221 nm.</p>
+          <p class="fig-cap">Eje X: cobre. Eje Y: posición de la banda de la mica. La franja horizontal es la ventana 2206–2221 nm del informe.</p>
         </div>
         <div>
-          <div class="fig-frame"><img src="assets/figs/fig23_cu_w2250.png" alt="Figura 23: Cu versus w2250" /></div>
-          <p class="fig-cap">Figura 23 del informe. Clorita Fe-rica a w2250 largo.</p>
+          <div class="fig-frame"><img src="assets/figs/fig20_cu_w2200.png" alt="Figura 20: Cu en X y w2200 en Y" /></div>
+          <p class="fig-cap">Figura 20 del informe. Cobre en horizontal; banda de la mica en vertical.</p>
         </div>
       </div>
 
-      <h3 style="margin-top:32px">Magnetita modelada y susceptibilidad magnética</h3>
+      <h3 style="margin-top:32px">Cobre y la banda de la clorita (~2250 nm)</h3>
       <div class="grid-2">
         <div class="card">
-          <div id="magsus" class="chart"></div>
-          <p class="fig-cap">La línea punteada marca MagSus = 5000 (~1 % de magnetita en el informe). Gran parte de la magnetita modelada queda por debajo de ese umbral.</p>
+          <div id="cuw25" class="chart"></div>
+          <p class="fig-cap">Eje X: cobre. Eje Y: posición de la banda de la clorita. La clorita rica en hierro queda más arriba.</p>
+        </div>
+        <div>
+          <div class="fig-frame"><img src="assets/figs/fig23_cu_w2250.png" alt="Figura 23: Cu en X y w2250 en Y" /></div>
+          <p class="fig-cap">Figura 23 del informe. Cobre en horizontal; banda de la clorita en vertical.</p>
+        </div>
+      </div>
+
+      <h3 style="margin-top:32px">Qué tan magnética es cada muestra</h3>
+      <div class="grid-2">
+        <div class="card">
+          <div id="magsus" class="chart tall"></div>
+          <p class="fig-cap">Eje X: susceptibilidad magnética (qué tan magnética es la roca). Eje Y: sondaje. El color es la magnetita que calcula el balance. La línea roja es el umbral del informe.</p>
         </div>
         <div>
           <div class="fig-frame">
-            <img src="assets/figs/fig13_magsus.png" alt="Figura 13: susceptibilidad magnética y clasificación de magnetita" />
+            <img src="assets/figs/fig13_magsus.png" alt="Figura 13: susceptibilidad magnética por sondaje" />
           </div>
-          <p class="fig-cap">Figura 13: pocos círculos abiertos (magnetita). El balance asigna magnetita con más frecuencia a partir del Fe total.</p>
+          <p class="fig-cap">Figura 13 del informe: misma orientación (magnética en X, sondaje en Y). Los círculos abiertos eran su criterio de magnetita.</p>
         </div>
       </div>
 
-      <h3 style="margin-top:32px">Matriz: mineral HyLogger vs familia de balance</h3>
+      <h3 style="margin-top:32px">Mineral del espectro frente al del balance</h3>
       <div class="card">
         <div id="heat" class="chart tall"></div>
-        <p class="fig-cap">Filas: mineral TSA. Columnas: familia de mayor masa (sin cuarzo). La diagonal es acuerdo; K-feldespato y Fe-óxido fuera de ella ilustran el hueco del SWIR.</p>
+        <p class="fig-cap">Cada celda cuenta muestras. Si espectro y balance eligen el mismo mineral, caen en la diagonal.</p>
       </div>
 
-      <h3 style="margin-top:32px">Criterios mapeables de la Tabla 4</h3>
+      <h3 style="margin-top:32px">Cobre y número de anomalías (Tabla 4)</h3>
       <div class="card">
         <div id="t4" class="chart"></div>
-        <p class="fig-cap">Cada punto es una muestra. El índice cuenta cuántos de Au, Ag, As, Ba, Bi, Ce, Cu, La, Sb, Se, Te, Mo y W superan 10× corteza (Rudnick y Gao 2003), tal como define el informe.</p>
+        <p class="fig-cap">Eje X: cobre. Eje Y: cuántos elementos superan 10 veces la corteza (Au, Ag, As, Ba, Bi, Ce, Cu, La, Sb, Se, Te, Mo, W).</p>
       </div>
     </section>
 
     <section class="section wrap" id="sondajes">
       <h2>Explorar un sondaje</h2>
-      <p class="note">La profundidad aumenta hacia abajo. Las barras apiladas son modos del balance; las líneas son Fe, Cu y el índice de la Tabla 4.</p>
+      <p class="note">La profundidad aumenta hacia abajo. A la izquierda, los minerales que calcula el balance. A la derecha, hierro, cobre y el índice de anomalías.</p>
       <div class="filters">
         <label>Prospecto
           <select id="prospect"></select>
@@ -325,9 +329,9 @@
           <strong>Origen del CSV de balance.</strong>
           <code>Resultado_Balance_Mineral.csv</code> se obtuvo en el módulo
           <a href="https://geoia.site/balance/">https://geoia.site/balance/</a>
-          (Balance mineral y zonación de alteración, GeoIA). Ese módulo calcula los modos minerales por BVLS,
-          la clasificación química (fílica / argílica / propilítica / potásica) y la validación
-          concordante/discordante que se comparan aquí con el informe.
+          (Balance mineral y zonación de alteración, GeoIA). Ese módulo estima el porcentaje
+          de cada mineral y una clase de alteración (fílica, argílica, propilítica o potásica),
+          que aquí se comparan con el informe.
         </p>
         <p>
           Los umbrales geoquímicos copian la Tabla 4 del informe (10 veces la abundancia cortical de Rudnick y Gao, 2003).
