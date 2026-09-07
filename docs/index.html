@@ -199,19 +199,19 @@
 
     <section class="section wrap" id="graficos">
       <h2>Los diagramas del informe, recreados con el CSV</h2>
-      <p class="note">A la izquierda, la recreación. A la derecha, la figura original. Los ejes coinciden con el informe: lo que iba en X sigue en X.</p>
+      <p class="note">A la izquierda, la recreación. A la derecha, la figura original con su leyenda. Los dos gráficos de cada fila usan la misma escala.</p>
 
       <h3>Potasio y sodio respecto al aluminio</h3>
       <div class="grid-2">
         <div class="card">
           <div id="ger" class="chart"></div>
-          <p class="fig-cap">Color = mineral principal del balance (sin cuarzo). Eje X: sodio/aluminio. Eje Y: potasio/aluminio.</p>
+          <p class="fig-cap">Color = mineral principal del balance (sin cuarzo). Mismos ejes que la figura de al lado: 0 a 1.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: campos de K-feldespato, moscovita, clorita y albita" />
           </div>
-          <p class="fig-cap">Figura 8 del informe. La nube se junta a la izquierda (poco sodio). Una cola baja va hacia albita.</p>
+          <p class="fig-cap">Figura 8 del informe. Leyenda: tipo de roca. La nube a la izquierda es alteración (poco sodio). El espacio vacío a la derecha es roca con más sodio, casi sin alterar.</p>
         </div>
       </div>
 
@@ -219,13 +219,23 @@
       <div class="grid-2">
         <div class="card">
           <div id="gertsa" class="chart"></div>
-          <p class="fig-cap">Mismos ejes que la figura de al lado. El color ahora es el mineral que vio el espectrómetro, no el del balance.</p>
+          <p class="fig-cap">Mismos ejes 0–1. El color es la mezcla de minerales del informe (espectro + química), para poder compararlo con la figura de al lado.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig12_espectral_geoquimica.png" alt="Figura 12: clasificación combinada espectral y geoquímica" />
           </div>
-          <p class="fig-cap">Figura 12 del informe: el mismo diagrama de sodio y potasio, con colores del espectro.</p>
+          <p class="fig-cap">Figura 12 del informe. Leyenda: mezcla de minerales (espectro + química). Los colores marcan ensamblajes, no los campos del diagrama.</p>
+          <div class="area-legend">
+            <strong>Qué es cada zona del diagrama</strong>
+            <ul>
+              <li><b>Arriba a la izquierda</b> (mucho potasio, casi sin sodio): feldspato potásico.</li>
+              <li><b>A media altura a la izquierda</b> (marca «Mu», K/Al ≈ 0,33): moscovita / sericita.</li>
+              <li><b>Abajo a la izquierda</b> (origen, marca «Cd»): clorita.</li>
+              <li><b>Abajo a la derecha</b> (mucho sodio): albita.</li>
+              <li><b>Centro y derecha casi vacíos</b>: roca poco alterada (volcanitas GRV o granito Donington).</li>
+            </ul>
+          </div>
         </div>
       </div>
 
@@ -239,11 +249,11 @@
       <div class="grid-2">
         <div class="card">
           <div id="cuw22" class="chart"></div>
-          <p class="fig-cap">Eje X: cobre. Eje Y: posición de la banda de la mica. La franja horizontal es la ventana 2206–2221 nm del informe.</p>
+          <p class="fig-cap">Eje X: cobre, 0–50 000 ppm (igual que el informe). Las líneas punteadas son 2206 y 2221 nm: ahí cae casi todo el cobre alto.</p>
         </div>
         <div>
           <div class="fig-frame"><img src="assets/figs/fig20_cu_w2200.png" alt="Figura 20: Cu en X y w2200 en Y" /></div>
-          <p class="fig-cap">Figura 20 del informe. Cobre en horizontal; banda de la mica en vertical.</p>
+          <p class="fig-cap">Figura 20 del informe. Leyenda: mezcla de minerales. Círculo abierto = muestra magnética (magnetita). El tamaño del punto también indica cobre.</p>
         </div>
       </div>
 
@@ -251,11 +261,11 @@
       <div class="grid-2">
         <div class="card">
           <div id="cuw25" class="chart"></div>
-          <p class="fig-cap">Eje X: cobre. Eje Y: posición de la banda de la clorita. La clorita rica en hierro queda más arriba.</p>
+          <p class="fig-cap">Eje X: cobre, 0–25 000 ppm (igual que el informe). La línea punteada es 2246 nm: el cobre alto queda por encima (clorita más férrica).</p>
         </div>
         <div>
           <div class="fig-frame"><img src="assets/figs/fig23_cu_w2250.png" alt="Figura 23: Cu en X y w2250 en Y" /></div>
-          <p class="fig-cap">Figura 23 del informe. Cobre en horizontal; banda de la clorita en vertical.</p>
+          <p class="fig-cap">Figura 23 del informe. Leyenda: mezcla de minerales. Círculo abierto = magnetita. Cobre alto sobre 2246 nm.</p>
         </div>
       </div>
 
@@ -263,13 +273,13 @@
       <div class="grid-2">
         <div class="card">
           <div id="magsus" class="chart tall"></div>
-          <p class="fig-cap">Eje X: susceptibilidad magnética (qué tan magnética es la roca). Eje Y: sondaje. El color es la magnetita que calcula el balance. La línea roja es el umbral del informe.</p>
+          <p class="fig-cap">Mismos ejes que el informe (escala logarítmica). Color = mezcla de minerales. Círculo abierto = por encima del umbral magnético (hacia magnetita).</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig13_magsus.png" alt="Figura 13: susceptibilidad magnética por sondaje" />
           </div>
-          <p class="fig-cap">Figura 13 del informe: misma orientación (magnética en X, sondaje en Y). Los círculos abiertos eran su criterio de magnetita.</p>
+          <p class="fig-cap">Figura 13 del informe. Leyenda: mezcla de minerales. Círculos abiertos = magnetita. A la izquierda de la línea, hematita; a la derecha, magnetita.</p>
         </div>
       </div>
 
