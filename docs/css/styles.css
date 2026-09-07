@@ -209,11 +209,19 @@ h1 { font-size: clamp(1.85rem, 3.8vw, 2.85rem); max-width: 22ch; }
   grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
-.fig-cap {
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  margin-top: 8px;
+.area-legend {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  color: var(--ink);
 }
+.area-legend strong { display: block; margin-bottom: 6px; }
+.area-legend ul { margin: 0; padding-left: 18px; }
+.area-legend li { margin: 4px 0; }
 .fig-frame {
   background: #fff;
   border: 1px solid var(--line);
