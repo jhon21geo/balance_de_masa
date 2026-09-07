@@ -6,13 +6,17 @@ Las dos fuentes describen los **mismos 1 225 intervalos** de 43 sondajes del e
 
 ## Cómo verlo
 
-Abre `docs/index.html` con un servidor local (los `fetch` de JSON no funcionan como `file://`):
+Sitio público (GitHub Pages):
+
+**https://jhon21geo.github.io/balance_de_masa/**
+
+Para trabajar en local (los `fetch` de JSON no funcionan como `file://`):
 
 ```bash
 python3 -m http.server 8080 --directory docs
 ```
 
-Luego visita `http://localhost:8080`. En GitHub Pages, publica la carpeta `docs/` de la rama principal.
+Luego abre `http://localhost:8080`.
 
 ## Qué muestra el visor
 
