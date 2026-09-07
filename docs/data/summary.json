@@ -41,29 +41,29 @@
       "K-feldespato-sericita-Fe-óxido": 1
     },
     "mass_balance": {
-      "Fe-óxido": 240,
-      "Clorita": 128,
-      "Mica blanca / sericita": 443,
-      "Calc-silicato": 55,
-      "K-feldespato": 343,
-      "Carbonato": 15,
+      "Fe-óxido": 246,
+      "Clorita": 125,
+      "Mica blanca / sericita": 292,
+      "Calc-silicato": 60,
+      "K-feldespato": 484,
+      "Carbonato": 17,
       "Sulfuro Cu": 1
     },
     "chem_alteration": {
-      "Propilitica": 209,
-      "Indefinida": 814,
-      "Potasica": 85,
-      "Argilica": 115,
-      "Filica": 2
+      "Propilitica": 219,
+      "Argilica": 97,
+      "Indefinida": 715,
+      "Filica": 76,
+      "Potasica": 118
     },
     "validation": {
-      "Discordante": 179,
-      "N/A": 814,
-      "Concordante": 232
+      "Discordante": 200,
+      "Concordante": 310,
+      "N/A": 715
     },
     "confianza": {
-      "Alta": 182,
-      "Media": 1043
+      "Alta": 244,
+      "Media": 981
     },
     "stratigraphy": {
       "Wallaroo Gr": 626,
@@ -99,40 +99,41 @@
         "Mica blanca / sericita": 1
       },
       "Clorita": {
-        "Clorita": 93,
-        "Fe-óxido": 131,
-        "Calc-silicato": 6,
-        "K-feldespato": 71,
-        "Mica blanca / sericita": 64,
+        "Clorita": 94,
+        "Fe-óxido": 133,
+        "Calc-silicato": 8,
+        "K-feldespato": 108,
+        "Mica blanca / sericita": 22,
         "Sulfuro Cu": 1
       },
       "Mica blanca / sericita": {
-        "Mica blanca / sericita": 303,
-        "K-feldespato": 172,
-        "Clorita": 10,
-        "Fe-óxido": 44
+        "Mica blanca / sericita": 240,
+        "K-feldespato": 232,
+        "Clorita": 11,
+        "Fe-óxido": 45,
+        "Carbonato": 1
       },
       "Anfibol / calc-silicato": {
-        "Clorita": 6,
+        "Calc-silicato": 8,
         "Carbonato": 2,
-        "Calc-silicato": 5,
+        "Clorita": 1,
         "K-feldespato": 2,
-        "Fe-óxido": 2
+        "Fe-óxido": 4
       },
       "Carbonato": {
-        "K-feldespato": 26,
+        "K-feldespato": 62,
         "Clorita": 14,
-        "Mica blanca / sericita": 42,
-        "Fe-óxido": 53,
-        "Carbonato": 3,
-        "Calc-silicato": 5
+        "Fe-óxido": 54,
+        "Mica blanca / sericita": 5,
+        "Carbonato": 4,
+        "Calc-silicato": 4
       },
       "Sin mineral SWIR": {
         "Clorita": 4,
-        "Mica blanca / sericita": 32,
+        "Mica blanca / sericita": 23,
         "Fe-óxido": 8,
-        "Calc-silicato": 39,
-        "K-feldespato": 68,
+        "Calc-silicato": 40,
+        "K-feldespato": 76,
         "Carbonato": 10
       },
       "Calc-silicato": {
@@ -143,74 +144,73 @@
     },
     "ger_vs_chem": {
       "Clorita": {
-        "Propilitica": 170,
-        "Indefinida": 31,
-        "Argilica": 11
+        "Propilitica": 181,
+        "Indefinida": 18,
+        "Argilica": 12,
+        "Filica": 1
       },
       "Intermedio / fondo": {
-        "Propilitica": 14,
-        "Indefinida": 12
+        "Propilitica": 4,
+        "Indefinida": 22
       },
       "Sericita": {
-        "Indefinida": 731,
-        "Potasica": 51,
-        "Argilica": 96,
-        "Propilitica": 14
+        "Argilica": 85,
+        "Indefinida": 635,
+        "Potasica": 76,
+        "Filica": 64,
+        "Propilitica": 32
       },
       "K-feldespato": {
-        "Indefinida": 37,
-        "Potasica": 34,
-        "Argilica": 7,
-        "Propilitica": 1,
-        "Filica": 2
+        "Filica": 11,
+        "Potasica": 42,
+        "Indefinida": 26,
+        "Propilitica": 2
       },
       "Albita": {
-        "Indefinida": 3,
-        "Propilitica": 10,
-        "Argilica": 1
+        "Indefinida": 14
       }
     },
     "report_vs_mb": {
       "Clorita-Fe-óxido": {
-        "Fe-óxido": 97,
+        "Fe-óxido": 98,
         "Clorita": 56,
         "Calc-silicato": 23,
-        "Mica blanca / sericita": 3
+        "Mica blanca / sericita": 2
       },
       "Sericita": {
-        "Mica blanca / sericita": 348,
-        "K-feldespato": 183,
-        "Carbonato": 10,
+        "Mica blanca / sericita": 243,
+        "K-feldespato": 286,
+        "Carbonato": 11,
         "Clorita": 9,
         "Calc-silicato": 12,
-        "Fe-óxido": 1
+        "Fe-óxido": 2
       },
       "Clorita": {
-        "Clorita": 4,
-        "Mica blanca / sericita": 6,
+        "Clorita": 6,
+        "Mica blanca / sericita": 4,
         "Carbonato": 1,
         "Calc-silicato": 7
       },
       "Clorita-anfibol-Fe-óxido": {
-        "Clorita": 1
+        "Calc-silicato": 1
       },
       "Sericita-clorita-Fe-óxido": {
-        "Fe-óxido": 33,
-        "Mica blanca / sericita": 8,
-        "Calc-silicato": 1,
+        "Fe-óxido": 32,
         "Clorita": 26,
-        "K-feldespato": 18,
+        "Mica blanca / sericita": 7,
+        "Calc-silicato": 1,
+        "K-feldespato": 20,
         "Sulfuro Cu": 1
       },
       "Clorita-magnetita": {
-        "Fe-óxido": 26,
-        "Clorita": 2,
-        "Mica blanca / sericita": 1
+        "Fe-óxido": 27,
+        "Clorita": 2
       },
       "Sericita-clorita": {
-        "Clorita": 10,
-        "K-feldespato": 42,
-        "Mica blanca / sericita": 52,
+        "Clorita": 9,
+        "K-feldespato": 78,
+        "Mica blanca / sericita": 15,
+        "Calc-silicato": 2,
         "Fe-óxido": 2
       },
       "K-feldespato": {
@@ -221,21 +221,20 @@
         "K-feldespato": 29
       },
       "Carbonato-Fe-óxido": {
-        "Clorita": 1,
-        "Mica blanca / sericita": 2,
-        "Fe-óxido": 4
+        "Clorita": 2,
+        "Fe-óxido": 5
       },
       "Sericita-Fe-óxido": {
         "Clorita": 12,
-        "Mica blanca / sericita": 22,
-        "K-feldespato": 18,
+        "Mica blanca / sericita": 21,
+        "K-feldespato": 19,
         "Fe-óxido": 61,
-        "Calc-silicato": 10,
-        "Carbonato": 4
+        "Calc-silicato": 9,
+        "Carbonato": 5
       },
       "Sericita-magnetita": {
-        "K-feldespato": 5,
-        "Fe-óxido": 12
+        "K-feldespato": 4,
+        "Fe-óxido": 13
       },
       "K-feldespato-magnetita": {
         "K-feldespato": 2,
@@ -246,17 +245,18 @@
         "Calc-silicato": 1
       },
       "Clorita-anfibol": {
-        "Clorita": 1
+        "Calc-silicato": 1
       },
       "Anfibol": {
-        "Clorita": 4,
-        "Fe-óxido": 2
+        "Clorita": 1,
+        "Calc-silicato": 1,
+        "Fe-óxido": 4
       },
       "Magnetita": {
         "Clorita": 1
       },
       "Carbonato": {
-        "Mica blanca / sericita": 1,
+        "Calc-silicato": 1,
         "Clorita": 1
       },
       "K-feldespato-sericita-Fe-óxido": {
@@ -269,30 +269,30 @@
     "pct_cu_gt270": 31.8,
     "pct_na_depleted": 79.6,
     "n_magsus_mt": 51,
-    "n_mb_magnetite_gt5": 429,
-    "n_mb_hematite_gt5": 412,
-    "pct_hematite_among_feox_mb": 96.0,
-    "mean_magnetite": 6.7,
-    "mean_hematite": 6.4,
-    "mean_kfeldspar": 15.22,
-    "mean_chlorite": 7.96,
-    "mean_mica": 15.38,
-    "mean_quartz": 35.37,
-    "n_albite_mb_gt1": 0,
-    "n_plagioclase_mb_gt1": 0,
-    "validation_n": 411,
-    "validation_concordant": 232,
-    "validation_concordant_pct": 56.4,
-    "spectral_mb_agree_n": 404,
+    "n_mb_magnetite_gt5": 430,
+    "n_mb_hematite_gt5": 409,
+    "pct_hematite_among_feox_mb": 95.1,
+    "mean_magnetite": 6.86,
+    "mean_hematite": 6.42,
+    "mean_kfeldspar": 16.68,
+    "mean_chlorite": 7.67,
+    "mean_mica": 12.13,
+    "mean_quartz": 32.49,
+    "n_albite_mb_gt1": 820,
+    "n_plagioclase_mb_gt1": 238,
+    "validation_n": 510,
+    "validation_concordant": 310,
+    "validation_concordant_pct": 60.8,
+    "spectral_mb_agree_n": 346,
     "spectral_mb_comparable_n": 1059,
-    "spectral_mb_agree_pct": 38.1,
+    "spectral_mb_agree_pct": 32.7,
     "high_cu_w2200_in_window_pct": 90.0,
     "high_cu_w2250_long_pct": 97.0,
-    "r_magsus_magnetite": 0.395,
+    "r_magsus_magnetite": 0.398,
     "r_fe_feoxides": 0.982,
     "r_cu_table4": 0.425,
     "mean_table4": 2.47,
-    "indefinida_pct": 66.4,
+    "indefinida_pct": 58.4,
     "phengite_n": 325,
     "fe_chlorite_n": 306,
     "muscovite_n": 204
@@ -307,9 +307,9 @@
       "cu": 350.3,
       "fe": 42.23,
       "t4": 6.0,
-      "conc": 0,
-      "disc": 3,
-      "mt": 26.26
+      "conc": 1,
+      "disc": 2,
+      "mt": 26.49
     },
     {
       "id": "AD8",
@@ -320,9 +320,9 @@
       "cu": 64.7,
       "fe": 12.46,
       "t4": 1.79,
-      "conc": 10,
-      "disc": 1,
-      "mt": 6.46
+      "conc": 11,
+      "disc": 3,
+      "mt": 6.47
     },
     {
       "id": "ASD1",
@@ -333,9 +333,9 @@
       "cu": 283.7,
       "fe": 9.79,
       "t4": 0.74,
-      "conc": 2,
-      "disc": 7,
-      "mt": 4.03
+      "conc": 3,
+      "disc": 3,
+      "mt": 4.12
     },
     {
       "id": "ASD2",
@@ -348,7 +348,7 @@
       "t4": 1.71,
       "conc": 3,
       "disc": 1,
-      "mt": 2.18
+      "mt": 2.12
     },
     {
       "id": "CAR01",
@@ -359,9 +359,9 @@
       "cu": 59.6,
       "fe": 13.15,
       "t4": 2.67,
-      "conc": 2,
-      "disc": 0,
-      "mt": 7.15
+      "conc": 0,
+      "disc": 1,
+      "mt": 7.22
     },
     {
       "id": "CAR02",
@@ -385,9 +385,9 @@
       "cu": 8.6,
       "fe": 2.48,
       "t4": 0.38,
-      "conc": 6,
-      "disc": 4,
-      "mt": 1.08
+      "conc": 7,
+      "disc": 3,
+      "mt": 1.1
     },
     {
       "id": "CSD1",
@@ -400,7 +400,7 @@
       "t4": 1.75,
       "conc": 2,
       "disc": 0,
-      "mt": 9.5
+      "mt": 9.63
     },
     {
       "id": "DRD1",
@@ -411,9 +411,9 @@
       "cu": 390.5,
       "fe": 9.11,
       "t4": 2.77,
-      "conc": 2,
-      "disc": 6,
-      "mt": 4.74
+      "conc": 6,
+      "disc": 3,
+      "mt": 4.8
     },
     {
       "id": "EC_21",
@@ -424,9 +424,9 @@
       "cu": 69.4,
       "fe": 5.28,
       "t4": 1.29,
-      "conc": 1,
-      "disc": 1,
-      "mt": 2.04
+      "conc": 2,
+      "disc": 2,
+      "mt": 2.14
     },
     {
       "id": "FH_AFMECO_TO_MW23_5",
@@ -438,8 +438,8 @@
       "fe": 4.08,
       "t4": 0.5,
       "conc": 1,
-      "disc": 0,
-      "mt": 1.08
+      "disc": 1,
+      "mt": 1.07
     },
     {
       "id": "GHDD6",
@@ -450,9 +450,9 @@
       "cu": 3302.7,
       "fe": 7.39,
       "t4": 6.24,
-      "conc": 6,
-      "disc": 5,
-      "mt": 2.29
+      "conc": 11,
+      "disc": 6,
+      "mt": 2.39
     },
     {
       "id": "HHD1_HHD1W1_1",
@@ -463,7 +463,7 @@
       "cu": 93.0,
       "fe": 6.66,
       "t4": 2.14,
-      "conc": 5,
+      "conc": 6,
       "disc": 1,
       "mt": 4.31
     },
@@ -478,7 +478,7 @@
       "t4": 0.17,
       "conc": 0,
       "disc": 0,
-      "mt": 1.98
+      "mt": 2.49
     },
     {
       "id": "HWD1",
@@ -489,9 +489,9 @@
       "cu": 806.4,
       "fe": 9.22,
       "t4": 4.16,
-      "conc": 19,
-      "disc": 5,
-      "mt": 6.24
+      "conc": 21,
+      "disc": 3,
+      "mt": 6.2
     },
     {
       "id": "IHAD1",
@@ -503,8 +503,8 @@
       "fe": 18.79,
       "t4": 2.56,
       "conc": 8,
-      "disc": 1,
-      "mt": 10.47
+      "disc": 0,
+      "mt": 10.84
     },
     {
       "id": "IHAD2",
@@ -515,8 +515,8 @@
       "cu": 803.0,
       "fe": 15.29,
       "t4": 3.04,
-      "conc": 3,
-      "disc": 7,
+      "conc": 5,
+      "disc": 6,
       "mt": 8.75
     },
     {
@@ -541,9 +541,9 @@
       "cu": 2544.0,
       "fe": 15.62,
       "t4": 3.23,
-      "conc": 22,
-      "disc": 49,
-      "mt": 8.3
+      "conc": 37,
+      "disc": 64,
+      "mt": 8.31
     },
     {
       "id": "IHAD6",
@@ -554,9 +554,9 @@
       "cu": 260.6,
       "fe": 6.26,
       "t4": 1.74,
-      "conc": 13,
-      "disc": 3,
-      "mt": 3.49
+      "conc": 28,
+      "disc": 5,
+      "mt": 3.52
     },
     {
       "id": "IHAD8",
@@ -567,9 +567,9 @@
       "cu": 1532.2,
       "fe": 19.09,
       "t4": 2.75,
-      "conc": 6,
+      "conc": 7,
       "disc": 0,
-      "mt": 10.43
+      "mt": 10.48
     },
     {
       "id": "MDD004",
@@ -580,9 +580,9 @@
       "cu": 97.1,
       "fe": 8.34,
       "t4": 0.5,
-      "conc": 0,
+      "conc": 1,
       "disc": 1,
-      "mt": 2.56
+      "mt": 2.66
     },
     {
       "id": "MGD_35",
@@ -593,8 +593,8 @@
       "cu": 22.8,
       "fe": 6.39,
       "t4": 1.25,
-      "conc": 7,
-      "disc": 7,
+      "conc": 11,
+      "disc": 8,
       "mt": 2.42
     },
     {
@@ -606,9 +606,9 @@
       "cu": 153.2,
       "fe": 6.73,
       "t4": 2.61,
-      "conc": 10,
-      "disc": 0,
-      "mt": 3.28
+      "conc": 9,
+      "disc": 3,
+      "mt": 3.27
     },
     {
       "id": "PINDARI_1",
@@ -619,9 +619,9 @@
       "cu": 146.8,
       "fe": 10.42,
       "t4": 0.17,
-      "conc": 5,
+      "conc": 3,
       "disc": 0,
-      "mt": 2.28
+      "mt": 4.46
     },
     {
       "id": "PSC_4_SASC_2",
@@ -634,7 +634,7 @@
       "t4": 0.75,
       "conc": 2,
       "disc": 0,
-      "mt": 1.74
+      "mt": 1.69
     },
     {
       "id": "PSC_7_SASC_3",
@@ -647,7 +647,7 @@
       "t4": 0.67,
       "conc": 0,
       "disc": 1,
-      "mt": 2.03
+      "mt": 2.1
     },
     {
       "id": "PY4",
@@ -660,7 +660,7 @@
       "t4": 0.76,
       "conc": 1,
       "disc": 0,
-      "mt": 1.81
+      "mt": 2.21
     },
     {
       "id": "SAE10",
@@ -673,7 +673,7 @@
       "t4": 0.54,
       "conc": 0,
       "disc": 0,
-      "mt": 1.78
+      "mt": 2.6
     },
     {
       "id": "SAE11",
@@ -684,9 +684,9 @@
       "cu": 740.5,
       "fe": 15.62,
       "t4": 1.83,
-      "conc": 10,
-      "disc": 3,
-      "mt": 9.06
+      "conc": 14,
+      "disc": 9,
+      "mt": 9.08
     },
     {
       "id": "SAE3",
@@ -697,8 +697,8 @@
       "cu": 714.5,
       "fe": 24.57,
       "t4": 3.6,
-      "conc": 8,
-      "disc": 12,
+      "conc": 16,
+      "disc": 5,
       "mt": 16.11
     },
     {
@@ -710,7 +710,7 @@
       "cu": 768.5,
       "fe": 13.94,
       "t4": 2.6,
-      "conc": 15,
+      "conc": 18,
       "disc": 6,
       "mt": 8.26
     },
@@ -723,8 +723,8 @@
       "cu": 1269.8,
       "fe": 17.92,
       "t4": 3.19,
-      "conc": 16,
-      "disc": 9,
+      "conc": 22,
+      "disc": 5,
       "mt": 11.16
     },
     {
@@ -736,9 +736,9 @@
       "cu": 71.4,
       "fe": 24.33,
       "t4": 1.15,
-      "conc": 5,
-      "disc": 15,
-      "mt": 14.9
+      "conc": 4,
+      "disc": 1,
+      "mt": 17.25
     },
     {
       "id": "SAE8",
@@ -750,8 +750,8 @@
       "fe": 4.45,
       "t4": 1.29,
       "conc": 3,
-      "disc": 1,
-      "mt": 2.28
+      "disc": 4,
+      "mt": 2.26
     },
     {
       "id": "SAE9",
@@ -764,7 +764,7 @@
       "t4": 0.58,
       "conc": 0,
       "disc": 0,
-      "mt": 1.4
+      "mt": 2.08
     },
     {
       "id": "TD_1",
@@ -776,8 +776,8 @@
       "fe": 23.78,
       "t4": 4.78,
       "conc": 0,
-      "disc": 1,
-      "mt": 13.74
+      "disc": 7,
+      "mt": 13.82
     },
     {
       "id": "VANGUARD_1",
@@ -790,7 +790,7 @@
       "t4": 1.0,
       "conc": 1,
       "disc": 0,
-      "mt": 1.25
+      "mt": 1.26
     },
     {
       "id": "WC05D001",
@@ -801,9 +801,9 @@
       "cu": 49.1,
       "fe": 5.85,
       "t4": 0.14,
-      "conc": 17,
-      "disc": 1,
-      "mt": 2.41
+      "conc": 8,
+      "disc": 7,
+      "mt": 2.39
     },
     {
       "id": "WHD_1",
@@ -816,7 +816,7 @@
       "t4": 3.17,
       "conc": 1,
       "disc": 1,
-      "mt": 2.97
+      "mt": 3.07
     },
     {
       "id": "WJD1",
@@ -827,8 +827,8 @@
       "cu": 961.1,
       "fe": 38.75,
       "t4": 3.62,
-      "conc": 7,
-      "disc": 10,
+      "conc": 12,
+      "disc": 8,
       "mt": 25.91
     },
     {
@@ -840,9 +840,9 @@
       "cu": 1385.3,
       "fe": 12.16,
       "t4": 4.48,
-      "conc": 7,
-      "disc": 17,
-      "mt": 4.05
+      "conc": 14,
+      "disc": 10,
+      "mt": 4.1
     },
     {
       "id": "WWDD1",
@@ -853,9 +853,9 @@
       "cu": 132.5,
       "fe": 4.65,
       "t4": 2.52,
-      "conc": 0,
-      "disc": 0,
-      "mt": 1.09
+      "conc": 5,
+      "disc": 20,
+      "mt": 1.1
     }
   ]
 }

@@ -3,24 +3,24 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Informe Fabris 2013 vs balance mineral · Gawler oriental</title>
+  <title>Informe Fabris 2013 y balance mineral · Gawler oriental</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta name="description" content="Comparación pública entre Report Book 2013/00014 (Fabris et al.) y la mineralogía por balance de masa de los mismos sondajes IOCG del Cratón Gawler." />
+  <meta name="description" content="Comparación entre el Report Book 2013/00014 (Fabris et al.) y la mineralogía por balance de masa de los mismos sondajes IOCG del este del Cratón Gawler." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="brand">
-      Balance de masa vs informe IOCG
+      Balance de masa e informe IOCG
       <small>Gawler oriental · datos públicos</small>
     </div>
     <nav>
-      <a href="#hallazgos">Hallazgos</a>
-      <a href="#metodos">Métodos</a>
+      <a href="#hallazgos">Comparación</a>
+      <a href="#metodos">Método</a>
       <a href="#mapa">Mapa</a>
       <a href="#graficos">Gráficos</a>
       <a href="#sondajes">Sondajes</a>
@@ -31,14 +31,16 @@
 
   <main>
     <section class="hero wrap">
-      <span class="kicker">Comparación abierta</span>
-      <h1>Qué dice el informe de 2013 y qué añade el balance de masa</h1>
+      <span class="kicker">Nota de comparación</span>
+      <h1>Alteración IOCG en el Gawler oriental: el informe de 2013 y el balance mineral</h1>
       <p class="lede">
-        El Report Book 2013/00014 caracteriza alteración IOCG en el este del Cratón Gawler
-        con geoquímica, HyLogger y petrofísica.         El archivo
-        <code>Resultado_Balance_Mineral.csv</code> se obtuvo en el módulo
-        <a href="https://geoia.site/balance/">https://geoia.site/balance/</a>
-        (GeoIA: balance mineral BVLS y zonación de alteración) sobre esas mismas muestras.
+        Fabris y colaboradores (2013) describen la alteración asociada a mineralización
+        estilo IOCG en el este del Cratón Gawler a partir de geoquímica de roca total,
+        espectroscopia HyLogger y petrofísica. Sobre las mismas 1 225 muestras de 43
+        sondajes, el archivo <code>Resultado_Balance_Mineral.csv</code> —obtenido en
+        <a href="https://geoia.site/balance/">geoia.site/balance</a>— estima modos
+        minerales por BVLS y una zonación química. Esta página resume dónde ambas
+        lecturas coinciden y dónde divergen.
       </p>
       <p>
         <a class="pdf-btn" href="RB201300014.pdf">Leer el informe PDF (21 MB)</a>
@@ -52,75 +54,129 @@
     </section>
 
     <section class="section wrap" id="hallazgos">
-      <h2>Similitudes y diferencias</h2>
+      <h2>Comparación</h2>
       <div class="grid-2">
-        <article class="card same">
-          <h3>Dónde coinciden</h3>
-          <ul class="tight">
-            <li><strong>Mismo universo de datos:</strong> 1 225 muestras en 43 sondajes de la provincia Olímpica Cu-Au (Wallaroo Group, Donington, GRV, Emmie Bluff, Carrapateena, Mt Woods).</li>
-            <li><strong>Mica blanca y clorita dominan el SWIR:</strong> 529 + 366 muestras. El informe concluye lo mismo: la mayoría está alterada a sericita o clorita.</li>
-            <li><strong>Fengita &gt; moscovita</strong> (325 vs 204) y <strong>clorita Fe-rica</strong> (306). Reproduce las observaciones regionales del informe sobre Wallaroo, Donington y GRV alterados.</li>
-            <li><strong>Sodio a menudo deplecionado:</strong> muchas muestras se aplastan hacia Na/Al bajo, como en la Fig. 8 del informe. El balance no recupera albita ni plagioclasa &gt;1 % como fases de masa, pero el GER con Na₂O sí muestra una cola sódica (GRV / Donington menos alterados).</li>
-            <li><strong>Vectores espectrales a Cu:</strong> el 90 % de las muestras con Cu &gt; 270 ppm tiene w2200 entre 2206 y 2221 nm; el 97 % tiene w2250 &gt; 2246 nm. Confirma las Figs. 20 y 23 del informe.</li>
-            <li><strong>Fe metasomático:</strong> 38 % de las muestras tienen Fe &gt; 10 %. Magnetita + hematita del balance correlacionan r = 0.98 con Fe total: el modelo captura la misma tendencia Fe-Al del informe.</li>
-          </ul>
+        <article class="card same prose">
+          <h3>Coincidencias</h3>
+          <p>
+            Ambas fuentes describen el mismo conjunto: 1 225 intervalos en 43 sondajes
+            de la provincia Olímpica Cu-Au. El espectro SWIR está dominado por mica blanca
+            (529 muestras) y clorita (366). Predomina fengita sobre moscovita (325 frente
+            a 204) y clorita Fe-rica (306), en línea con las observaciones regionales del
+            informe sobre Wallaroo, Donington y Gawler Range Volcanics alterados.
+          </p>
+          <p>
+            El diagrama GER se comprime hacia Na/Al bajo: cerca del 80 % de las muestras
+            están deplecionadas en sodio. En cobre, el 90 % de los intervalos con
+            Cu &gt; 270 ppm cae en la ventana w2200 de 2206–2221 nm, y el 97 % tiene
+            w2250 &gt; 2246 nm, como en las Figs. 20 y 23. El hierro metasomático es
+            igualmente claro: el 38 % de las muestras tiene Fe &gt; 10 %, y la suma
+            magnetita + hematita del balance correlaciona con Fe total (r = 0,98).
+          </p>
         </article>
-        <article class="card diff">
-          <h3>Dónde se apartan</h3>
-          <ul class="tight">
-            <li><strong>Cuarzo y K-feldespato invisibles en SWIR:</strong> el balance asigna ~35 % de cuarzo y 15 % de K-feldespato en promedio. El informe tuvo que añadir K-feldespato “a mano” con el diagrama GER; el SWIR no lo ve.</li>
-            <li><strong>K-feldespato dominante en 343 muestras del balance</strong> frente a solo 81 en el campo GER del informe. El ratio K/Al de sericita (1:3) esconde feldespato potásico coexistente.</li>
-            <li><strong>Magnetita:</strong> MagSus &gt; 5000 (criterio del informe) marca 51 muestras; el balance pone magnetita &gt; 5 % en 429. La correlación MagSus vs magnetita es solo r = 0.40: el modelo reparte Fe entre magnetita y hematita sin ancla magnética.</li>
-            <li><strong>Familia espectral vs familia de masa:</strong> coinciden en 38 % de las muestras comparables. TSA apunta al mineral hidratado del espectro; el balance reparte toda la química.</li>
-            <li><strong>Nomenclatura:</strong> el CSV usa clases tipo pórfido (propilítica, argílica, potásica, fílica) y deja 66 % como “Indefinida”. El informe habla de ensamblajes IOCG (sericita-Fe-óxido, clorita-magnetita, etc.).</li>
-            <li><strong>Validación interna:</strong> de 411 muestras con z-score definido, 56 % son concordantes entre química y espectro. El resto es discordante o no clasificable: una incertidumbre que el informe 2013 no cuantificó muestra a muestra.</li>
-          </ul>
+        <article class="card diff prose">
+          <h3>Discrepancias</h3>
+          <p>
+            HyLogger no registra cuarzo ni K-feldespato. El balance sí: en promedio,
+            32 % de cuarzo y 17 % de feldespato potásico. Ese feldespato es la fase
+            de mayor masa en 484 muestras, frente a solo 81 en el campo GER del
+            informe; el ratio K/Al de la sericita (1:3) oculta K-feldespato coexistente.
+          </p>
+          <p>
+            La magnetita es el desacuerdo más marcado. MagSus &gt; 5000 —umbral del
+            informe, cercano a ~1 % de magnetita— identifica 51 muestras; el modelo
+            asigna magnetita &gt; 5 % en 430. La correlación MagSus–magnetita es débil
+            (r = 0,40): el Fe se reparte entre magnetita y hematita sin ancla magnética.
+            Familia TSA y familia de masa coinciden apenas en el 33 % de las muestras
+            comparables. Además, el CSV etiqueta alteración al estilo pórfido y deja
+            indefinido el 58 %; el informe habla de ensamblajes IOCG. De 510 muestras
+            con z-score, el 61 % es concordante entre química y espectro.
+          </p>
         </article>
       </div>
+      <div class="card" style="margin-top:18px">
+        <table class="stats">
+          <thead>
+            <tr>
+              <th>Indicador</th>
+              <th>Informe / espectro</th>
+              <th>Balance de masa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>K-feldespato dominante</td>
+              <td>81 muestras (campo GER)</td>
+              <td>484 muestras</td>
+            </tr>
+            <tr>
+              <td>Magnetita</td>
+              <td>51 con MagSus &gt; 5000</td>
+              <td>430 con M_Magnetita &gt; 5 %</td>
+            </tr>
+            <tr>
+              <td>Acuerdo TSA–familia de masa</td>
+              <td colspan="2">32,7 % (n = 1 059 comparables)</td>
+            </tr>
+            <tr>
+              <td>Clase química</td>
+              <td>Ensamblajes IOCG (sericita–Fe-óxido, clorita–magnetita…)</td>
+              <td>58 % «Indefinida»; resto tipo pórfido</td>
+            </tr>
+            <tr>
+              <td>Concordancia química–espectro</td>
+              <td>No cuantificada por muestra en 2013</td>
+              <td>60,8 % (n = 510)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p class="callout">
-        Lectura corta: el balance de masa <em>confirma</em> el relato hidrotermal del informe
-        (Na-off, Fe-on, fengita y clorita Fe, ventanas w2200/w2250 hacia Cu) y
-        <em>completa</em> lo que HyLogger no puede ver (cuarzo, K-feldespato, proporciones).
-        Diverge cuando se le pide que decida magnetita vs hematita o un único mineral “dueño” de la muestra.
+        En conjunto, el balance confirma el esquema hidrotermal del informe —pérdida
+        de Na, ganancia de Fe, fengita y clorita férrica, y las ventanas espectrales
+        hacia Cu— y cuantifica fases que el SWIR no ve. Diverge cuando debe elegir
+        entre magnetita y hematita, o cuando se le pide un único mineral dominante
+        para una muestra mezclada.
       </p>
     </section>
 
     <section class="section wrap" id="metodos">
-      <h2>Dos lecturas de las mismas muestras</h2>
+      <h2>Método</h2>
+      <p class="lede" style="max-width:70ch; margin-bottom:18px">
+        No se trata de dos campañas distintas, sino de dos formas de leer las mismas
+        muestras. El informe combina geoquímica, espectro y petrofísica para nombrar
+        ensamblajes y proponer vectores. El CSV convierte esa geoquímica en porcentajes
+        minerales.
+      </p>
       <div class="card methods">
         <table>
           <thead>
             <tr>
               <th></th>
-              <th>Informe Fabris et al. 2013</th>
-              <th>Balance mineral (CSV)</th>
+              <th>Fabris et al. (2013)</th>
+              <th>Balance mineral (GeoIA)</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>Entrada</td>
-              <td>Geoquímica de roca total, HyLogger VNIR-SWIR (±TIR), MagSus y densidad</td>
-              <td>La misma geoquímica, procesada en el módulo <a href="https://geoia.site/balance/">GeoIA / balance</a> (BVLS, 34 minerales)</td>
+              <td>Datos de partida</td>
+              <td>Geoquímica de roca total, HyLogger VNIR–SWIR (±TIR), MagSus y densidad</td>
+              <td>La misma geoquímica, ajustada por BVLS a 34 minerales en <a href="https://geoia.site/balance/">geoia.site/balance</a></td>
             </tr>
             <tr>
-              <td>Alteración</td>
-              <td>Campos molares K/Al–Na/Al + mineral SWIR + MagSus &gt; 5000</td>
-              <td>Z-scores fílica / argílica / propilítica / potásica + % peso mineral</td>
+              <td>Clasificación</td>
+              <td>Campos molares K/Al–Na/Al, mineral TSA y MagSus &gt; 5000</td>
+              <td>Z-scores fílica, argílica, propilítica y potásica, más modos en % peso</td>
             </tr>
             <tr>
-              <td>Salida</td>
-              <td>Ensamblajes cualitativos y criterios mapeables (Tabla 4)</td>
-              <td>M_Magnetita, M_Hematita, M_Muscovita, M_Clorita, M_Feldespato_K, M_Cuarzo…</td>
+              <td>Producto</td>
+              <td>Ensamblajes cualitativos y umbrales de la Tabla 4</td>
+              <td>Modos (magnetita, hematita, moscovita, clorita, K-feldespato, cuarzo, …)</td>
             </tr>
             <tr>
-              <td>Fortaleza</td>
-              <td>Contexto de sistema mineral y vectores de exploración</td>
-              <td>Cantidades comparables entre sondajes y con el espectro</td>
-            </tr>
-            <tr>
-              <td>Límite</td>
-              <td>No entrega modos; SWIR no ve feldespato ni cuarzo</td>
-              <td>Puede inventar magnetita o mezclar familias si el ajuste es degenerado</td>
+              <td>Alcance</td>
+              <td>Contexto de sistema mineral y vectores de exploración; no entrega modos</td>
+              <td>Cantidades comparables entre sondajes; el ajuste puede ser degenerado (p. ej. magnetita vs hematita)</td>
             </tr>
           </tbody>
         </table>
@@ -128,40 +184,40 @@
     </section>
 
     <section class="section wrap" id="mapa">
-      <h2>Dónde están los sondajes</h2>
-      <p class="note">Puntos coloreados por índice geoquímico de la Tabla 4 del informe (número de elementos anómalos a 10× corteza). Clic en un punto para abrir el sondaje.</p>
+      <h2>Ubicación de los sondajes</h2>
+      <p class="note">Cada punto corresponde a un sondaje, coloreado por el índice geoquímico de la Tabla 4 (número de elementos anómalos a 10× corteza). Un clic abre el pozo.</p>
       <div id="map"></div>
       <div class="fig-row" style="margin-top:18px">
         <div>
           <div class="fig-frame">
             <img src="assets/figs/mapa_sondajes.jpg" alt="Mapa original del informe: sondajes sobre aeromagnetometría del Gawler oriental" />
           </div>
-          <p class="fig-cap">Figura 1 del informe: ubicación de los sondajes sobre imagen aeromagnética. El recuadro es Emmie Bluff.</p>
+          <p class="fig-cap">Figura 1 del informe: sondajes sobre imagen aeromagnética. El recuadro señala Emmie Bluff.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig17_mica_composicion.png" alt="Variación composicional de mica blanca y posición del feature AlOH" />
           </div>
-          <p class="fig-cap">Figura 17: el feature ~2200 nm distingue moscovita (corta) de fengita (larga). El informe y el CSV usan el mismo w2200.</p>
+          <p class="fig-cap">Figura 17: la posición del feature ~2200 nm distingue moscovita (corta) de fengita (larga). Informe y CSV usan el mismo w2200.</p>
         </div>
       </div>
     </section>
 
     <section class="section wrap" id="graficos">
-      <h2>Los mismos diagramas, leídos de dos maneras</h2>
-      <p class="note">Izquierda: recreación con el CSV. Derecha: figura original del informe, para comparar a ojo.</p>
+      <h2>Diagramas del informe, recreados con el CSV</h2>
+      <p class="note">A la izquierda, la recreación a partir del CSV actualizado. A la derecha, la figura original, para comparación visual.</p>
 
       <h3>Diagrama GER K/Al vs Na/Al</h3>
       <div class="grid-2">
         <div class="card">
           <div id="ger" class="chart"></div>
-          <p class="fig-cap">Color = familia dominante del balance de masa (sin cuarzo). Los campos siguen a Fabris §4.2.1.</p>
+          <p class="fig-cap">El color indica la familia dominante del balance (sin cuarzo). Los campos molares siguen a Fabris et al. (§4.2.1).</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: campos de K-feldespato, moscovita, clorita y albita" />
           </div>
-          <p class="fig-cap">Figura 8 del informe. El racimo se aplasta hacia Na/Al bajo, con una cola hacia albita. El GER de la izquierda usa Na₂O y Al₂O₃ (Na_pct del CSV está en cero).</p>
+          <p class="fig-cap">Figura 8 del informe. La nube se comprime hacia Na/Al bajo, con una cola hacia albita. Las coordenadas de la izquierda se calculan a partir de Na₂O y Al₂O₃, como en ioGAS.</p>
         </div>
       </div>
 
@@ -169,13 +225,13 @@
       <div class="grid-2">
         <div class="card">
           <div id="feal" class="chart"></div>
-          <p class="fig-cap">La nube hacia Fe alto es la alteración férrica regional. Color = grupo TSA (HyLogger).</p>
+          <p class="fig-cap">El desplazamiento hacia Fe alto corresponde a la alteración férrica regional. El color es el grupo TSA (HyLogger).</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig12_espectral_geoquimica.png" alt="Figura 12: clasificación combinada espectral y geoquímica" />
           </div>
-          <p class="fig-cap">Figura 12: el informe combina TSA + geoquímica para armar ensamblajes. El CSV hace el paso extra de cuantificarlos.</p>
+          <p class="fig-cap">Figura 12: el informe combina TSA y geoquímica para nombrar ensamblajes. El CSV añade la cuantificación de modos.</p>
         </div>
       </div>
 
@@ -199,24 +255,24 @@
         </div>
       </div>
 
-      <h3 style="margin-top:32px">La gran discordancia: magnetita</h3>
+      <h3 style="margin-top:32px">Magnetita modelada y susceptibilidad magnética</h3>
       <div class="grid-2">
         <div class="card">
           <div id="magsus" class="chart"></div>
-          <p class="fig-cap">Línea punteada: umbral MagSus = 5000 del informe (~1 % magnetita). Muchas muestras con magnetita modelada quedan por debajo.</p>
+          <p class="fig-cap">La línea punteada marca MagSus = 5000 (~1 % de magnetita en el informe). Gran parte de la magnetita modelada queda por debajo de ese umbral.</p>
         </div>
         <div>
           <div class="fig-frame">
             <img src="assets/figs/fig13_magsus.png" alt="Figura 13: susceptibilidad magnética y clasificación de magnetita" />
           </div>
-          <p class="fig-cap">Figura 13 del informe: pocos círculos abiertos (magnetita). El balance es más generoso al asignar magnetita a partir de Fe.</p>
+          <p class="fig-cap">Figura 13: pocos círculos abiertos (magnetita). El balance asigna magnetita con más frecuencia a partir del Fe total.</p>
         </div>
       </div>
 
       <h3 style="margin-top:32px">Matriz: mineral HyLogger vs familia de balance</h3>
       <div class="card">
         <div id="heat" class="chart tall"></div>
-        <p class="fig-cap">Filas = mineral TSA. Columnas = familia de mayor masa (sin cuarzo). La diagonal es acuerdo; K-feldespato y Fe-óxido fuera de diagonal son el hueco SWIR.</p>
+        <p class="fig-cap">Filas: mineral TSA. Columnas: familia de mayor masa (sin cuarzo). La diagonal es acuerdo; K-feldespato y Fe-óxido fuera de ella ilustran el hueco del SWIR.</p>
       </div>
 
       <h3 style="margin-top:32px">Criterios mapeables de la Tabla 4</h3>
@@ -228,7 +284,7 @@
 
     <section class="section wrap" id="sondajes">
       <h2>Explorar un sondaje</h2>
-      <p class="note">Profundidad hacia abajo. Las barras apiladas son modos del balance; las líneas son Fe, Cu y el índice Tabla 4.</p>
+      <p class="note">La profundidad aumenta hacia abajo. Las barras apiladas son modos del balance; las líneas son Fe, Cu y el índice de la Tabla 4.</p>
       <div class="filters">
         <label>Prospecto
           <select id="prospect"></select>
@@ -278,8 +334,9 @@
           Las figuras a la derecha de cada gráfico se extrajeron del PDF original para facilitar la comparación visual; el informe sigue siendo la referencia.
         </p>
         <p class="note">
-          Este visor es una lectura crítica, no un reemplazo del report book. Los ensamblajes “estilo informe”
-          se reconstruyeron con reglas publicadas en §§4.2.1–4.2.4; no reproducen cada decisión manual de 2013.
+          Esta página es una lectura crítica del report book, no un sustituto.
+          Los ensamblajes «estilo informe» se reconstruyeron con las reglas de
+          §§4.2.1–4.2.4; no reproducen cada decisión petrográfica de 2013.
         </p>
       </div>
     </section>
@@ -287,7 +344,7 @@
 
   <footer>
     <div class="wrap">
-      Comparación pública · datos de sondaje del Gawler oriental · MIT License
+      Comparación · sondajes del este del Cratón Gawler · MIT License
     </div>
   </footer>
 
