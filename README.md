@@ -24,11 +24,11 @@ Luego abre `http://localhost:8080`.
 
 ## Qué muestra el visor
 
-El balance confirma el esquema hidrotermal del informe: depleción de sodio, dominio de mica blanca y clorita Fe-rica, ventanas w2200/w2250 asociadas a cobre, y Fe metasomático. Cuantifica, además, cuarzo y K-feldespato, fases que el SWIR no registra.
+Las dos lecturas coinciden en lo grande: se pierde sodio, entra hierro, hay mucha mica blanca y clorita, y el cobre se asocia a ciertas bandas del espectro. El balance además calcula cuarzo y feldespato potásico, que el espectrómetro no ve.
 
-Difiere en tres puntos. El K-feldespato es dominante en muchas más muestras según el balance que según el campo GER. La magnetita modelada supera con creces el umbral MagSus > 5000 del informe (correlación r ≈ 0,40). Familia TSA y familia de masa coinciden en cerca de un tercio de las muestras comparables; el CSV deja indefinida más de la mitad de las clases químicas tipo pórfido, mientras el informe nombra ensamblajes IOCG.
+Difieren en la magnetita (el informe la infiere por qué tan magnética es la roca; el balance, por el hierro químico) y en el mineral que consideran principal (coinciden en 1 de cada 3 muestras).
 
-El visor incluye mapa de sondajes, recreación de los diagramas GER / Fe–Al / Cu–w2200, matriz TSA frente a masa, y un corte por pozo.
+El visor incluye mapa, los mismos diagramas del informe con los ejes en el mismo orden, y un corte por pozo.
 
 ## Datos
 
