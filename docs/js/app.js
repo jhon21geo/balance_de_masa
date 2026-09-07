@@ -73,9 +73,10 @@ function renderKpis() {
 }
 
 function renderMap() {
-  const map = L.map("map").setView([-31.15, 137.15], 7);
+  const map = L.map("map", { scrollWheelZoom: false }).setView([-31.15, 137.15], 7);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: "&copy; OpenStreetMap",
+    maxZoom: 12,
   }).addTo(map);
 
   SUMMARY.holes.forEach((h) => {
@@ -89,8 +90,9 @@ function renderMap() {
       fillColor: fill,
       fillOpacity: 0.85,
     }).addTo(map);
+    const na = h.n - h.conc - h.disc;
     marker.bindPopup(
-      `<strong>${h.id}</strong><br>${h.prospect}<br>n=${h.n} · Cu medio ${h.cu} ppm<br>índice Tabla 4 = ${h.t4}<br>concordantes ${h.conc} / discordantes ${h.disc}`
+      `<strong>${h.id}</strong><br>${h.prospect}<br>n=${h.n} · Cu medio ${h.cu} ppm<br>índice Tabla 4 = ${h.t4}<br>TSA vs masa: ${h.conc} concordantes · ${h.disc} discordantes · ${na} sin z-score`
     );
     marker.on("click", () => {
       $("prospect").value = h.prospect;
@@ -98,6 +100,17 @@ function renderMap() {
       drawHole(h.id);
     });
   });
+
+  const refresh = () => map.invalidateSize();
+  window.addEventListener("resize", refresh);
+  setTimeout(refresh, 250);
+  setTimeout(refresh, 1200);
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) refresh();
+    });
+    io.observe($("map"));
+  }
 }
 
 function tracesBy(field, xKey, yKey, extra = {}) {
