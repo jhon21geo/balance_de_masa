@@ -1,20 +1,18 @@
-# Comparación pública: informe IOCG 2013 y balance de masa
+# Informe IOCG 2013 y balance mineral
 
-Visor estático para contrastar el *Report Book 2013/00014* (Fabris, Halley, van der Wielen, Keeping y Gordon) con la mineralogía cuantitativa de `Resultado_Balance_Mineral.csv`.
+Visor estático que compara el *Report Book 2013/00014* (Fabris, Halley, van der Wielen, Keeping y Gordon) con la mineralogía cuantitativa de `Resultado_Balance_Mineral.csv`.
 
-Las dos fuentes describen los **mismos 1 225 intervalos** de 43 sondajes del este del Cratón Gawler (provincia Olímpica Cu-Au). El informe clasifica alteración con geoquímica, HyLogger y petrofísica. El CSV de mineralogía cuantitativa se obtuvo en el módulo [GeoIA / balance](https://geoia.site/balance/).
+Las dos fuentes describen los mismos 1 225 intervalos de 43 sondajes del este del Cratón Gawler (provincia Olímpica Cu-Au). El informe clasifica la alteración con geoquímica, HyLogger y petrofísica. El CSV se obtuvo en el módulo [GeoIA / balance](https://geoia.site/balance/).
 
 ## Cómo verlo
 
-Sitio público (GitHub Pages):
-
-**https://jhon21geo.github.io/balance_de_masa/**
+Sitio público (GitHub Pages): **https://jhon21geo.github.io/balance_de_masa/**
 
 Informe original (PDF, 21 MB): **https://jhon21geo.github.io/balance_de_masa/RB201300014.pdf**
 
 El PDF se descargó del [catálogo SARIG](https://catalog.sarig.sa.gov.au/document/d20010635) (registro `d20010635`, Geological Survey of South Australia / Department for Energy and Mining). Copia oficial: [RB201300014.pdf en mesac-public](https://demstedpprodaue12.blob.core.windows.net/mesac-public/resources/files/4347046/RB201300014.pdf). PID: <https://pid.sarig.sa.gov.au/document/d20010635>. Licencia del catálogo: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-El archivo `Resultado_Balance_Mineral.csv` se obtuvo en el módulo **[https://geoia.site/balance/](https://geoia.site/balance/)** (GeoIA: balance mineral BVLS y zonación de alteración).
+El archivo `Resultado_Balance_Mineral.csv` se obtuvo en **[https://geoia.site/balance/](https://geoia.site/balance/)** (GeoIA: balance mineral BVLS y zonación de alteración).
 
 Para trabajar en local (los `fetch` de JSON no funcionan como `file://`):
 
@@ -26,9 +24,11 @@ Luego abre `http://localhost:8080`.
 
 ## Qué muestra el visor
 
-- Similitudes: depleción de Na, dominio de mica blanca y clorita Fe-rica, ventanas w2200/w2250 hacia cobre, Fe metasomático.
-- Diferencias: K-feldespato y cuarzo que el SWIR no ve, magnetita modelada vs MagSus, nomenclatura tipo pórfido vs ensamblajes IOCG, 38 % de acuerdo entre familia TSA y familia de masa.
-- Mapa de sondajes, recreación de los diagramas GER / Fe-Al / Cu-w2200 del informe, matriz de confusión y un explorador por pozo.
+El balance confirma el esquema hidrotermal del informe: depleción de sodio, dominio de mica blanca y clorita Fe-rica, ventanas w2200/w2250 asociadas a cobre, y Fe metasomático. Cuantifica, además, cuarzo y K-feldespato, fases que el SWIR no registra.
+
+Difiere en tres puntos. El K-feldespato es dominante en muchas más muestras según el balance que según el campo GER. La magnetita modelada supera con creces el umbral MagSus > 5000 del informe (correlación r ≈ 0,40). Familia TSA y familia de masa coinciden en cerca de un tercio de las muestras comparables; el CSV deja indefinida más de la mitad de las clases químicas tipo pórfido, mientras el informe nombra ensamblajes IOCG.
+
+El visor incluye mapa de sondajes, recreación de los diagramas GER / Fe–Al / Cu–w2200, matriz TSA frente a masa, y un corte por pozo.
 
 ## Datos
 
