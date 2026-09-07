@@ -188,6 +188,8 @@ ul.tight li { margin: 8px 0; }
   font-weight: 600;
 }
 .pdf-btn:hover { background: var(--copper-deep); }
+.geoia-btn { background: var(--chlorite); }
+.geoia-btn:hover { background: #2f4a38; }
 
 .callout {
   margin-top: 16px;
