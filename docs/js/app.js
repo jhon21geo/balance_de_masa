@@ -392,8 +392,14 @@ function renderMagsus() {
     traces,
     withAxes({
       ...layoutBase,
-      legend: legendInside,
-      margin: { t: 36, r: 10, b: 48, l: 72 },
+      legend: {
+        ...legendInside,
+        x: 1.02,
+        xanchor: "left",
+        font: { size: 8 },
+        tracegroupgap: 0,
+      },
+      margin: { t: 36, r: 168, b: 48, l: 72 },
       title: { text: "Susceptibilidad magnética por sondaje", font: { size: 14 } },
       xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log", range: [-2, 5] },
       yaxis: { title: "Sondaje", categoryorder: "array", categoryarray: holes.slice().reverse() },
