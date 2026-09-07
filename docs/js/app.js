@@ -58,8 +58,22 @@ const layoutBase = {
   paper_bgcolor: "#ffffff",
   plot_bgcolor: "#ffffff",
   font: { family: "Figtree, Segoe UI, sans-serif", color: "#1f2937", size: 12 },
-  margin: { t: 48, r: 18, b: 56, l: 64 },
-  legend: { orientation: "h", y: -0.22, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
+  margin: { t: 36, r: 10, b: 48, l: 54 },
+  autosize: true,
+};
+
+const legendInside = {
+  orientation: "v",
+  x: 0.99,
+  y: 0.99,
+  xanchor: "right",
+  yanchor: "top",
+  bgcolor: "rgba(255,255,255,0.92)",
+  bordercolor: "#cbd5e1",
+  borderwidth: 1,
+  font: { size: 10 },
+  itemsizing: "constant",
+  tracegroupgap: 1,
 };
 
 let SAMPLES = [];
@@ -91,7 +105,7 @@ async function load() {
   SAMPLES = samples;
   SUMMARY = summary;
   renderKpis();
-  renderMap();
+  renderMaps();
   renderGer();
   renderGerTsa();
   renderFeAl();
@@ -100,6 +114,11 @@ async function load() {
   renderHeat();
   renderT4();
   setupHoles();
+  requestAnimationFrame(() => {
+    document.querySelectorAll(".plot-box .chart").forEach((el) => {
+      if (window.Plotly && el.id) Plotly.Plots.resize(el);
+    });
+  });
 }
 
 function renderKpis() {
@@ -115,35 +134,51 @@ function renderKpis() {
     .join("");
 }
 
-function renderMap() {
-  const map = L.map("map", { scrollWheelZoom: false }).setView([-31.15, 137.15], 7);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: "&copy; OpenStreetMap",
-    maxZoom: 12,
+function holePopup(h) {
+  const na = h.n - h.conc - h.disc;
+  return `<strong>${h.id}</strong><br>${h.prospect}<br>n=${h.n} · Cu medio ${h.cu} ppm<br>índice Tabla 4 = ${h.t4}<br>alteración: ${h.chem || "s/d"} · mezcla: ${h.asm || "s/d"}<br>espectro vs balance: ${h.conc} coinciden · ${h.disc} no coinciden · ${na} sin clasificar`;
+}
+
+function attachHoleMarker(map, h, fill) {
+  if (h.lat == null || h.lon == null) return;
+  const marker = L.circleMarker([h.lat, h.lon], {
+    radius: 7 + Math.min(8, Math.log10((h.cu || 1) + 1) * 2),
+    color: "#1e293b",
+    weight: 1,
+    fillColor: fill,
+    fillOpacity: 0.85,
   }).addTo(map);
-
-  SUMMARY.holes.forEach((h) => {
-    if (h.lat == null || h.lon == null) return;
-    const t4 = h.t4 || 0;
-    const fill = t4 >= 4 ? "#e0201a" : t4 >= 2 ? "#f0631d" : t4 >= 1 ? "#f4e04d" : "#2563eb";
-    const marker = L.circleMarker([h.lat, h.lon], {
-      radius: 7 + Math.min(8, Math.log10((h.cu || 1) + 1) * 2),
-      color: "#1e293b",
-      weight: 1,
-      fillColor: fill,
-      fillOpacity: 0.85,
-    }).addTo(map);
-    const na = h.n - h.conc - h.disc;
-    marker.bindPopup(
-      `<strong>${h.id}</strong><br>${h.prospect}<br>n=${h.n} · Cu medio ${h.cu} ppm<br>índice Tabla 4 = ${h.t4}<br>espectro vs balance: ${h.conc} coinciden · ${h.disc} no coinciden · ${na} sin clasificar`
-    );
-    marker.on("click", () => {
-      $("prospect").value = h.prospect;
-      fillHoleSelect(h.prospect, h.id);
-      drawHole(h.id);
-    });
+  marker.bindPopup(holePopup(h));
+  marker.on("click", () => {
+    $("prospect").value = h.prospect;
+    fillHoleSelect(h.prospect, h.id);
+    drawHole(h.id);
   });
+}
 
+function keepMapsInSync(a, b) {
+  let lock = false;
+  const copy = (from, to) => {
+    if (lock) return;
+    lock = true;
+    to.setView(from.getCenter(), from.getZoom(), { animate: false });
+    lock = false;
+  };
+  a.on("moveend", () => copy(a, b));
+  b.on("moveend", () => copy(b, a));
+}
+
+function addMapLegend(map, title, rows) {
+  const legend = L.control({ position: "bottomleft" });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create("div", "map-legend");
+    div.innerHTML = `<strong>${title}</strong>` + rows.map(([c, t]) => `<span><i style="background:${c}"></i> ${t}</span>`).join("");
+    return div;
+  };
+  legend.addTo(map);
+}
+
+function watchMapSize(map, el) {
   const refresh = () => map.invalidateSize();
   window.addEventListener("resize", refresh);
   setTimeout(refresh, 250);
@@ -152,22 +187,45 @@ function renderMap() {
     const io = new IntersectionObserver((entries) => {
       if (entries.some((e) => e.isIntersecting)) refresh();
     });
-    io.observe($("map"));
+    io.observe(el);
   }
+}
 
-  const legend = L.control({ position: "bottomleft" });
-  legend.onAdd = function () {
-    const div = L.DomUtil.create("div", "map-legend");
-    div.innerHTML = `
-      <strong>Índice Tabla 4</strong>
-      <span><i style="background:#e0201a"></i> ≥ 4 elementos anómalos</span>
-      <span><i style="background:#f0631d"></i> 2–3 elementos</span>
-      <span><i style="background:#f4e04d"></i> 1 elemento</span>
-      <span><i style="background:#2563eb"></i> 0 (sin anomalía)</span>
-    `;
-    return div;
-  };
-  legend.addTo(map);
+function renderMaps() {
+  const view = { center: [-31.15, 137.15], zoom: 7 };
+  const tiles = () =>
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: "&copy; OpenStreetMap",
+      maxZoom: 12,
+    });
+
+  const map = L.map("map", { scrollWheelZoom: false }).setView(view.center, view.zoom);
+  tiles().addTo(map);
+  SUMMARY.holes.forEach((h) => {
+    const t4 = h.t4 || 0;
+    const fill = t4 >= 4 ? "#e0201a" : t4 >= 2 ? "#f0631d" : t4 >= 1 ? "#f4e04d" : "#2563eb";
+    attachHoleMarker(map, h, fill);
+  });
+  addMapLegend(map, "Índice Tabla 4", [
+    ["#e0201a", "≥ 4 elementos anómalos"],
+    ["#f0631d", "2–3 elementos"],
+    ["#f4e04d", "1 elemento"],
+    ["#2563eb", "0 (sin anomalía)"],
+  ]);
+  watchMapSize(map, $("map"));
+
+  const mapAlt = L.map("mapAlt", { scrollWheelZoom: false }).setView(view.center, view.zoom);
+  tiles().addTo(mapAlt);
+  SUMMARY.holes.forEach((h) => attachHoleMarker(mapAlt, h, colorOf(h.chem)));
+  addMapLegend(mapAlt, "Alteración (GeoIA)", [
+    ["#e6a23c", "Fílica"],
+    ["#f56c6c", "Argílica"],
+    ["#67c23a", "Propilítica"],
+    ["#8a5cf6", "Potásica"],
+    ["#c3c9d4", "Indefinida"],
+  ]);
+  watchMapSize(mapAlt, $("mapAlt"));
+  keepMapsInSync(map, mapAlt);
 }
 
 function tracesBy(field, xKey, yKey, rows = SAMPLES) {
@@ -203,10 +261,10 @@ function gerShapes() {
 
 function gerAnnotations() {
   return [
-    { x: 0.12, y: 1.05, text: "K-feldespato", showarrow: false, font: { size: 11 } },
-    { x: 0.12, y: 0.37, text: "sericita", showarrow: false, font: { size: 11 } },
-    { x: 0.92, y: 0.08, text: "albita", showarrow: false, font: { size: 11 } },
-    { x: 0.55, y: 0.55, text: "AF", showarrow: false, font: { size: 11, color: "#1e293b" } },
+    { x: 0.14, y: 0.96, text: "K-feldespato", showarrow: false, font: { size: 11 } },
+    { x: 0.14, y: 0.37, text: "sericita", showarrow: false, font: { size: 11 } },
+    { x: 0.88, y: 0.08, text: "albita", showarrow: false, font: { size: 11 } },
+    { x: 0.52, y: 0.52, text: "AF", showarrow: false, font: { size: 11, color: "#1e293b" } },
   ];
 }
 
@@ -216,11 +274,10 @@ function renderGer() {
     tracesBy("mb", "naal", "kal"),
     withAxes({
       ...layoutBase,
-      margin: { t: 48, r: 18, b: 90, l: 56 },
-      title: { text: "Potasio / aluminio frente a sodio / aluminio", font: { size: 15 } },
-      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false, constrain: "domain" },
-      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false, scaleanchor: "x", scaleratio: 1 },
-      legend: { orientation: "h", y: -0.28, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
+      legend: legendInside,
+      title: { text: "Potasio / aluminio frente a sodio / aluminio", font: { size: 14 } },
+      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false },
+      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false },
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
@@ -234,11 +291,10 @@ function renderGerTsa() {
     tracesBy("asm", "naal", "kal"),
     withAxes({
       ...layoutBase,
-      margin: { t: 48, r: 18, b: 90, l: 56 },
-      title: { text: "Mismo diagrama, color = mezcla del informe", font: { size: 15 } },
-      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false, constrain: "domain" },
-      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false, scaleanchor: "x", scaleratio: 1 },
-      legend: { orientation: "h", y: -0.28, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
+      legend: legendInside,
+      title: { text: "Mismo diagrama, color = mezcla del informe", font: { size: 14 } },
+      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false },
+      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false },
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
@@ -252,10 +308,10 @@ function renderFeAl() {
     tracesBy("spec", "al", "fe"),
     withAxes({
       ...layoutBase,
-      title: { text: "Hierro frente a aluminio", font: { size: 15 } },
-      xaxis: { title: "Al (%)" },
-      yaxis: { title: "Fe (%)" },
-      legend: { orientation: "h", y: -0.22, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
+      legend: legendInside,
+      title: { text: "Hierro frente a aluminio", font: { size: 14 } },
+      xaxis: { title: "Al (%)", range: [0, 15] },
+      yaxis: { title: "Fe (%)", range: [0, 65] },
     }),
     { responsive: true, displayModeBar: false }
   );
@@ -268,18 +324,17 @@ function renderCuW() {
     tracesBy("asm", "cu", "w22", mica),
     withAxes({
       ...layoutBase,
-      margin: { t: 48, r: 18, b: 90, l: 64 },
-      title: { text: "Banda de la mica (~2200 nm) frente a cobre", font: { size: 15 } },
+      legend: legendInside,
+      title: { text: "Banda de la mica (~2200 nm) frente a cobre", font: { size: 14 } },
       xaxis: { title: "Cu (ppm)", range: [0, 50000] },
       yaxis: { title: "Posición de la banda de la mica (nm)", range: [2195, 2227.5] },
-      legend: { orientation: "h", y: -0.32, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
         { type: "line", x0: 0, x1: 50000, y0: 2206, y1: 2206, line: { dash: "dash", color: "#1e293b", width: 1 } },
         { type: "line", x0: 0, x1: 50000, y0: 2221, y1: 2221, line: { dash: "dash", color: "#1e293b", width: 1 } },
       ],
       annotations: [
-        { x: 48000, y: 2206, text: "2206 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: -10 },
-        { x: 48000, y: 2221, text: "2221 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: 10 },
+        { x: 1500, y: 2206, text: "2206 nm", showarrow: false, font: { size: 10 }, xanchor: "left", yshift: -10 },
+        { x: 1500, y: 2221, text: "2221 nm", showarrow: false, font: { size: 10 }, xanchor: "left", yshift: 10 },
       ],
     }),
     { responsive: true, displayModeBar: false }
@@ -291,16 +346,15 @@ function renderCuW() {
     tracesBy("asm", "cu", "w25", chl),
     withAxes({
       ...layoutBase,
-      margin: { t: 48, r: 18, b: 90, l: 64 },
-      title: { text: "Banda de la clorita (~2250 nm) frente a cobre", font: { size: 15 } },
+      legend: legendInside,
+      title: { text: "Banda de la clorita (~2250 nm) frente a cobre", font: { size: 14 } },
       xaxis: { title: "Cu (ppm)", range: [0, 25000] },
       yaxis: { title: "Posición de la banda de la clorita (nm)", range: [2240, 2263] },
-      legend: { orientation: "h", y: -0.32, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
         { type: "line", x0: 0, x1: 25000, y0: 2246, y1: 2246, line: { dash: "dash", color: "#1e293b", width: 1 } },
       ],
       annotations: [
-        { x: 24000, y: 2246, text: "2246 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: -10 },
+        { x: 800, y: 2246, text: "2246 nm", showarrow: false, font: { size: 10 }, xanchor: "left", yshift: -10 },
       ],
     }),
     { responsive: true, displayModeBar: false }
@@ -338,12 +392,11 @@ function renderMagsus() {
     traces,
     withAxes({
       ...layoutBase,
-      height: 620,
-      margin: { t: 48, r: 18, b: 90, l: 90 },
-      title: { text: "Susceptibilidad magnética por sondaje", font: { size: 15 } },
+      legend: legendInside,
+      margin: { t: 36, r: 10, b: 48, l: 72 },
+      title: { text: "Susceptibilidad magnética por sondaje", font: { size: 14 } },
       xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log", range: [-2, 5] },
       yaxis: { title: "Sondaje", categoryorder: "array", categoryarray: holes.slice().reverse() },
-      legend: { orientation: "h", y: -0.18, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
         { type: "line", xref: "x", yref: "paper", x0: 5000, x1: 5000, y0: 0, y1: 1, line: { dash: "dash", color: "#2563eb", width: 1.5 } },
       ],
