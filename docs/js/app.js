@@ -1,19 +1,33 @@
-/* Paleta alineada con geoia.site/balance (ALT_COLORS + QUAL_PALETTE). */
+/* Paleta GeoIA para el balance; paleta del informe (ioGAS) para ensamblajes. */
 const COLORS = {
   "Mica blanca / sericita": "#e6a23c",
   Clorita: "#67c23a",
   "K-feldespato": "#8a5cf6",
-  "Fe-óxido": "#f56c6c",
+  "Fe-óxido": "#808080",
   Carbonato: "#06b6d4",
   "Calc-silicato": "#84cc16",
-  "Anfibol / calc-silicato": "#2563eb",
+  "Anfibol / calc-silicato": "#4169e1",
   "Sulfuro Cu": "#f97316",
   "Arcilla / sulfato": "#ec4899",
   "Sin mineral SWIR": "#c3c9d4",
   "Caolinita / arcilla": "#ec4899",
   Mixto: "#64748b",
-  Sericita: "#e6a23c",
-  "Clorita-Fe-óxido": "#67c23a",
+  Sericita: "#e41a1c",
+  "Clorita-Fe-óxido": "#20b2aa",
+  "Sericita-Fe-óxido": "#8b4513",
+  "Sericita-clorita": "#ffd700",
+  "Sericita-clorita-Fe-óxido": "#daa520",
+  "K-feldespato-sericita": "#ff69b4",
+  "K-feldespato-Fe-óxido": "#800080",
+  "K-feldespato-magnetita": "#4b0082",
+  "K-feldespato-sericita-Fe-óxido": "#db7093",
+  "Clorita-magnetita": "#008b8b",
+  "Sericita-magnetita": "#a0522d",
+  "Clorita-anfibol-Fe-óxido": "#006400",
+  "Clorita-anfibol": "#228b22",
+  Anfibol: "#4169e1",
+  Magnetita: "#1e293b",
+  "Carbonato-Fe-óxido": "#4682b4",
   Propilitica: "#67c23a",
   Argilica: "#f56c6c",
   Potasica: "#8a5cf6",
@@ -45,7 +59,7 @@ const layoutBase = {
   plot_bgcolor: "#ffffff",
   font: { family: "Figtree, Segoe UI, sans-serif", color: "#1f2937", size: 12 },
   margin: { t: 48, r: 18, b: 56, l: 64 },
-  legend: { orientation: "h", y: -0.22 },
+  legend: { orientation: "h", y: -0.22, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
 };
 
 let SAMPLES = [];
@@ -156,16 +170,16 @@ function renderMap() {
   legend.addTo(map);
 }
 
-function tracesBy(field, xKey, yKey) {
+function tracesBy(field, xKey, yKey, rows = SAMPLES) {
   const groups = {};
-  SAMPLES.forEach((s) => {
+  rows.forEach((s) => {
     const g = s[field] || "s/d";
     (groups[g] ||= []).push(s);
   });
-  return Object.entries(groups).map(([name, rows]) => ({
-    x: rows.map((s) => s[xKey]),
-    y: rows.map((s) => s[yKey]),
-    text: rows.map((s) => `${s.h} ${s.f}–${s.t} m<br>${s.lith} · ${s.st}<br>Cu ${s.cu} ppm`),
+  return Object.entries(groups).map(([name, group]) => ({
+    x: group.map((s) => s[xKey]),
+    y: group.map((s) => s[yKey]),
+    text: group.map((s) => `${s.h} ${s.f}–${s.t} m<br>${s.lith} · ${s.st}<br>Cu ${s.cu} ppm`),
     hoverinfo: "text",
     mode: "markers",
     type: "scatter",
@@ -204,9 +218,9 @@ function renderGer() {
       ...layoutBase,
       margin: { t: 48, r: 18, b: 90, l: 56 },
       title: { text: "Potasio / aluminio frente a sodio / aluminio", font: { size: 15 } },
-      xaxis: { title: "Na/Al (molar)", range: [-0.02, 1.05], zeroline: false },
-      yaxis: { title: "K/Al (molar)", range: [-0.02, 1.15], zeroline: false },
-      legend: { orientation: "h", y: -0.28, title: { text: "Mineral principal del balance" } },
+      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false, constrain: "domain" },
+      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false, scaleanchor: "x", scaleratio: 1 },
+      legend: { orientation: "h", y: -0.28, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
@@ -217,14 +231,14 @@ function renderGer() {
 function renderGerTsa() {
   Plotly.newPlot(
     "gertsa",
-    tracesBy("spec", "naal", "kal"),
+    tracesBy("asm", "naal", "kal"),
     withAxes({
       ...layoutBase,
       margin: { t: 48, r: 18, b: 90, l: 56 },
-      title: { text: "Mismo diagrama, color = mineral del espectro", font: { size: 15 } },
-      xaxis: { title: "Na/Al (molar)", range: [-0.02, 1.05], zeroline: false },
-      yaxis: { title: "K/Al (molar)", range: [-0.02, 1.15], zeroline: false },
-      legend: { orientation: "h", y: -0.28, title: { text: "Mineral visto por el espectrómetro" } },
+      title: { text: "Mismo diagrama, color = mezcla del informe", font: { size: 15 } },
+      xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false, constrain: "domain" },
+      yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false, scaleanchor: "x", scaleratio: 1 },
+      legend: { orientation: "h", y: -0.28, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
@@ -241,73 +255,52 @@ function renderFeAl() {
       title: { text: "Hierro frente a aluminio", font: { size: 15 } },
       xaxis: { title: "Al (%)" },
       yaxis: { title: "Fe (%)" },
-      legend: { orientation: "h", y: -0.22, title: { text: "Mineral del espectro" } },
+      legend: { orientation: "h", y: -0.22, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
     }),
     { responsive: true, displayModeBar: false }
   );
 }
 
 function renderCuW() {
-  const cu = SAMPLES.filter((s) => s.cu != null && s.cu > 0);
+  const mica = SAMPLES.filter((s) => s.cu != null && s.cu > 0 && s.w22 != null);
   Plotly.newPlot(
     "cuw22",
-    [
-      {
-        x: cu.map((s) => s.cu),
-        y: cu.map((s) => s.w22),
-        mode: "markers",
-        type: "scatter",
-        marker: {
-          size: 7,
-          opacity: 0.75,
-          color: cu.map((s) => colorOf(s.spec)),
-          line: { width: 0.4, color: "#ffffff" },
-        },
-        text: cu.map((s) => `${s.h}<br>${s.spec}<br>banda mica ${s.w22} nm<br>Cu ${s.cu} ppm`),
-        hoverinfo: "text",
-        name: "muestras",
-        showlegend: false,
-      },
-    ],
+    tracesBy("asm", "cu", "w22", mica),
     withAxes({
       ...layoutBase,
+      margin: { t: 48, r: 18, b: 90, l: 64 },
       title: { text: "Banda de la mica (~2200 nm) frente a cobre", font: { size: 15 } },
-      xaxis: { title: "Cu (ppm)" },
-      yaxis: { title: "Posición de la banda de la mica (nm)", range: [2194, 2228] },
+      xaxis: { title: "Cu (ppm)", range: [0, 50000] },
+      yaxis: { title: "Posición de la banda de la mica (nm)", range: [2195, 2227.5] },
+      legend: { orientation: "h", y: -0.32, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
-        { type: "rect", x0: 0, x1: 55000, y0: 2206, y1: 2221, fillcolor: "rgba(230,162,60,0.14)", line: { width: 0 } },
+        { type: "line", x0: 0, x1: 50000, y0: 2206, y1: 2206, line: { dash: "dash", color: "#1e293b", width: 1 } },
+        { type: "line", x0: 0, x1: 50000, y0: 2221, y1: 2221, line: { dash: "dash", color: "#1e293b", width: 1 } },
+      ],
+      annotations: [
+        { x: 48000, y: 2206, text: "2206 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: -10 },
+        { x: 48000, y: 2221, text: "2221 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: 10 },
       ],
     }),
     { responsive: true, displayModeBar: false }
   );
 
+  const chl = SAMPLES.filter((s) => s.cu != null && s.cu > 0 && s.w25 != null);
   Plotly.newPlot(
     "cuw25",
-    [
-      {
-        x: cu.map((s) => s.cu),
-        y: cu.map((s) => s.w25),
-        mode: "markers",
-        type: "scatter",
-        marker: {
-          size: 7,
-          opacity: 0.75,
-          color: cu.map((s) => colorOf(s.spec)),
-          line: { width: 0.4, color: "#ffffff" },
-        },
-        text: cu.map((s) => `${s.h}<br>${s.spec}<br>banda clorita ${s.w25} nm<br>Cu ${s.cu} ppm`),
-        hoverinfo: "text",
-        name: "muestras",
-        showlegend: false,
-      },
-    ],
+    tracesBy("asm", "cu", "w25", chl),
     withAxes({
       ...layoutBase,
+      margin: { t: 48, r: 18, b: 90, l: 64 },
       title: { text: "Banda de la clorita (~2250 nm) frente a cobre", font: { size: 15 } },
-      xaxis: { title: "Cu (ppm)" },
-      yaxis: { title: "Posición de la banda de la clorita (nm)", range: [2238, 2266] },
+      xaxis: { title: "Cu (ppm)", range: [0, 25000] },
+      yaxis: { title: "Posición de la banda de la clorita (nm)", range: [2240, 2263] },
+      legend: { orientation: "h", y: -0.32, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
-        { type: "rect", x0: 0, x1: 55000, y0: 2246, y1: 2264, fillcolor: "rgba(103,194,58,0.12)", line: { width: 0 } },
+        { type: "line", x0: 0, x1: 25000, y0: 2246, y1: 2246, line: { dash: "dash", color: "#1e293b", width: 1 } },
+      ],
+      annotations: [
+        { x: 24000, y: 2246, text: "2246 nm", showarrow: false, font: { size: 10 }, xanchor: "right", yshift: -10 },
       ],
     }),
     { responsive: true, displayModeBar: false }
@@ -317,38 +310,46 @@ function renderCuW() {
 function renderMagsus() {
   const rows = SAMPLES.filter((s) => s.ms != null && s.ms > 0);
   const holes = unique(rows.map((s) => s.h)).sort();
+  const groups = {};
+  rows.forEach((s) => {
+    (groups[s.asm || "s/d"] ||= []).push(s);
+  });
+  const traces = Object.entries(groups).map(([name, group]) => ({
+    x: group.map((s) => s.ms),
+    y: group.map((s) => s.h),
+    mode: "markers",
+    type: "scatter",
+    name,
+    marker: {
+      size: 8,
+      opacity: 0.8,
+      color: colorOf(name),
+      symbol: group.map((s) => (s.ms >= 5000 ? "circle-open" : "circle")),
+      line: { width: 1.2, color: colorOf(name) },
+    },
+    text: group.map(
+      (s) =>
+        `${s.h}<br>${s.asm}<br>susceptibilidad ${s.ms}<br>magnetita del balance ${s.mt}%`
+    ),
+    hoverinfo: "text",
+  }));
   Plotly.newPlot(
     "magsus",
-    [
-      {
-        x: rows.map((s) => s.ms),
-        y: rows.map((s) => s.h),
-        mode: "markers",
-        type: "scatter",
-        marker: {
-          size: 8,
-          opacity: 0.8,
-          color: rows.map((s) => s.mt || 0),
-          colorscale: DENSITY_COLORSCALE,
-          colorbar: { title: { text: "Magnetita<br>del balance (%)" }, thickness: 14 },
-          line: { width: 0.3, color: "#ffffff" },
-        },
-        text: rows.map(
-          (s) =>
-            `${s.h}<br>susceptibilidad magnética ${s.ms}<br>magnetita ${s.mt}% · hematita ${s.hm}%`
-        ),
-        hoverinfo: "text",
-      },
-    ],
+    traces,
     withAxes({
       ...layoutBase,
       height: 620,
-      margin: { t: 48, r: 90, b: 56, l: 90 },
+      margin: { t: 48, r: 18, b: 90, l: 90 },
       title: { text: "Susceptibilidad magnética por sondaje", font: { size: 15 } },
-      xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log" },
+      xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log", range: [-2, 5] },
       yaxis: { title: "Sondaje", categoryorder: "array", categoryarray: holes.slice().reverse() },
+      legend: { orientation: "h", y: -0.18, bgcolor: "rgba(255,255,255,0)", borderwidth: 0 },
       shapes: [
-        { type: "line", xref: "x", yref: "paper", x0: 5000, x1: 5000, y0: 0, y1: 1, line: { dash: "dash", color: "#f56c6c", width: 2 } },
+        { type: "line", xref: "x", yref: "paper", x0: 5000, x1: 5000, y0: 0, y1: 1, line: { dash: "dash", color: "#2563eb", width: 1.5 } },
+      ],
+      annotations: [
+        { x: 200, y: 1.02, yref: "paper", text: "hematita", showarrow: false, font: { size: 11, color: "#2563eb" } },
+        { x: 30000, y: 1.02, yref: "paper", text: "magnetita", showarrow: false, font: { size: 11, color: "#2563eb" } },
       ],
     }),
     { responsive: true, displayModeBar: false }
