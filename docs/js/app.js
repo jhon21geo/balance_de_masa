@@ -111,6 +111,20 @@ function renderMap() {
     });
     io.observe($("map"));
   }
+
+  const legend = L.control({ position: "bottomleft" });
+  legend.onAdd = function () {
+    const div = L.DomUtil.create("div", "map-legend");
+    div.innerHTML = `
+      <strong>Índice Tabla 4</strong>
+      <span><i style="background:#8f2f22"></i> ≥ 4 elementos anómalos</span>
+      <span><i style="background:#b85c38"></i> 2–3 elementos</span>
+      <span><i style="background:#c4a35a"></i> 1 elemento</span>
+      <span><i style="background:#3e5c48"></i> 0 (sin anomalía a 10× corteza)</span>
+    `;
+    return div;
+  };
+  legend.addTo(map);
 }
 
 function tracesBy(field, xKey, yKey, extra = {}) {
@@ -137,16 +151,21 @@ function renderGer() {
     tracesBy("mb", "naal", "kal"),
     {
       ...layoutBase,
+      margin: { t: 36, r: 18, b: 90, l: 56 },
       title: { text: "GER recreado · color = balance de masa", font: { family: "Fraunces, serif", size: 16 } },
-      xaxis: { title: "Na/Al molar", range: [-0.02, 1.05] },
-      yaxis: { title: "K/Al molar", range: [-0.02, 1.15] },
+      xaxis: { title: "Na/Al molar (desde Na₂O / Al₂O₃)", range: [-0.02, 1.05], zeroline: false },
+      yaxis: { title: "K/Al molar (desde K₂O / Al₂O₃)", range: [-0.02, 1.15], zeroline: false },
+      legend: { orientation: "h", y: -0.28, title: { text: "Familia dominante (sin cuarzo)" } },
       shapes: [
+        { type: "line", x0: 0, x1: 1, y0: 1, y1: 0, line: { color: "#1b1712", width: 1 } },
         { type: "line", x0: 0, x1: 1, y0: 1, y1: 1, line: { dash: "dot", color: "#6d3d62" } },
         { type: "line", x0: 0, x1: 1, y0: 0.33, y1: 0.33, line: { dash: "dot", color: "#c4a35a" } },
       ],
       annotations: [
-        { x: 0.08, y: 1.02, text: "K-feldespato", showarrow: false, font: { size: 11 } },
-        { x: 0.08, y: 0.36, text: "sericita", showarrow: false, font: { size: 11 } },
+        { x: 0.12, y: 1.05, text: "K-feldespato", showarrow: false, font: { size: 11 } },
+        { x: 0.12, y: 0.37, text: "sericita", showarrow: false, font: { size: 11 } },
+        { x: 0.92, y: 0.08, text: "albita", showarrow: false, font: { size: 11 } },
+        { x: 0.55, y: 0.55, text: "AF", showarrow: false, font: { size: 11, color: "#1b1712" } },
       ],
     },
     { responsive: true, displayModeBar: false }
