@@ -141,6 +141,26 @@ ul.tight li { margin: 8px 0; }
 }
 .chart.tall { min-height: 520px; }
 #map { height: 460px; border-radius: 14px; border: 1px solid var(--line); }
+.map-legend {
+  background: rgba(255, 250, 242, 0.94);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.map-legend strong { display: block; margin-bottom: 4px; }
+.map-legend span { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+.map-legend i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #1b1712;
+  display: inline-block;
+  flex: 0 0 12px;
+}
 
 .filters {
   display: flex;

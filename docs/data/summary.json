@@ -13,25 +13,31 @@
       "Calc-silicato": 4
     },
     "ger": {
-      "Clorita": 254,
-      "Sericita": 890,
-      "K-feldespato": 81
+      "Clorita": 212,
+      "Intermedio / fondo": 26,
+      "Sericita": 892,
+      "K-feldespato": 81,
+      "Albita": 14
     },
     "report_assemblage": {
-      "Clorita-Fe-óxido": 187,
-      "Sericita": 561,
-      "Clorita": 20,
-      "Clorita-anfibol-Fe-óxido": 7,
-      "Sericita-clorita-Fe-óxido": 88,
-      "Clorita-magnetita": 30,
-      "Sericita-clorita": 108,
-      "K-feldespato-sericita": 30,
-      "Sericita-Fe-óxido": 125,
+      "Clorita-Fe-óxido": 179,
+      "Sericita": 563,
+      "Clorita": 18,
+      "Clorita-anfibol-Fe-óxido": 1,
+      "Sericita-clorita-Fe-óxido": 87,
+      "Clorita-magnetita": 29,
+      "Sericita-clorita": 106,
+      "K-feldespato": 38,
+      "K-feldespato-sericita": 29,
+      "Carbonato-Fe-óxido": 7,
+      "Sericita-Fe-óxido": 127,
       "Sericita-magnetita": 17,
-      "K-feldespato": 37,
       "K-feldespato-magnetita": 4,
       "K-feldespato-Fe-óxido": 9,
       "Clorita-anfibol": 1,
+      "Anfibol": 6,
+      "Magnetita": 1,
+      "Carbonato": 2,
       "K-feldespato-sericita-Fe-óxido": 1
     },
     "mass_balance": {
@@ -137,33 +143,42 @@
     },
     "ger_vs_chem": {
       "Clorita": {
-        "Propilitica": 194,
-        "Indefinida": 48,
-        "Argilica": 12
+        "Propilitica": 170,
+        "Indefinida": 31,
+        "Argilica": 11
+      },
+      "Intermedio / fondo": {
+        "Propilitica": 14,
+        "Indefinida": 12
       },
       "Sericita": {
-        "Indefinida": 730,
-        "Potasica": 50,
+        "Indefinida": 731,
+        "Potasica": 51,
         "Argilica": 96,
         "Propilitica": 14
       },
       "K-feldespato": {
-        "Indefinida": 36,
-        "Potasica": 35,
+        "Indefinida": 37,
+        "Potasica": 34,
         "Argilica": 7,
         "Propilitica": 1,
         "Filica": 2
+      },
+      "Albita": {
+        "Indefinida": 3,
+        "Propilitica": 10,
+        "Argilica": 1
       }
     },
     "report_vs_mb": {
       "Clorita-Fe-óxido": {
-        "Fe-óxido": 102,
-        "Clorita": 57,
+        "Fe-óxido": 97,
+        "Clorita": 56,
         "Calc-silicato": 23,
-        "Mica blanca / sericita": 5
+        "Mica blanca / sericita": 3
       },
       "Sericita": {
-        "Mica blanca / sericita": 346,
+        "Mica blanca / sericita": 348,
         "K-feldespato": 183,
         "Carbonato": 10,
         "Clorita": 9,
@@ -171,17 +186,16 @@
         "Fe-óxido": 1
       },
       "Clorita": {
-        "Clorita": 5,
-        "Mica blanca / sericita": 7,
+        "Clorita": 4,
+        "Mica blanca / sericita": 6,
         "Carbonato": 1,
         "Calc-silicato": 7
       },
       "Clorita-anfibol-Fe-óxido": {
-        "Clorita": 5,
-        "Fe-óxido": 2
+        "Clorita": 1
       },
       "Sericita-clorita-Fe-óxido": {
-        "Fe-óxido": 34,
+        "Fe-óxido": 33,
         "Mica blanca / sericita": 8,
         "Calc-silicato": 1,
         "Clorita": 26,
@@ -190,33 +204,38 @@
       },
       "Clorita-magnetita": {
         "Fe-óxido": 26,
-        "Clorita": 3,
+        "Clorita": 2,
         "Mica blanca / sericita": 1
       },
       "Sericita-clorita": {
         "Clorita": 10,
         "K-feldespato": 42,
-        "Mica blanca / sericita": 54,
+        "Mica blanca / sericita": 52,
         "Fe-óxido": 2
       },
+      "K-feldespato": {
+        "K-feldespato": 37,
+        "Calc-silicato": 1
+      },
       "K-feldespato-sericita": {
-        "K-feldespato": 30
+        "K-feldespato": 29
+      },
+      "Carbonato-Fe-óxido": {
+        "Clorita": 1,
+        "Mica blanca / sericita": 2,
+        "Fe-óxido": 4
       },
       "Sericita-Fe-óxido": {
         "Clorita": 12,
         "Mica blanca / sericita": 22,
         "K-feldespato": 18,
-        "Fe-óxido": 59,
+        "Fe-óxido": 61,
         "Calc-silicato": 10,
         "Carbonato": 4
       },
       "Sericita-magnetita": {
         "K-feldespato": 5,
         "Fe-óxido": 12
-      },
-      "K-feldespato": {
-        "K-feldespato": 36,
-        "Calc-silicato": 1
       },
       "K-feldespato-magnetita": {
         "K-feldespato": 2,
@@ -229,6 +248,17 @@
       "Clorita-anfibol": {
         "Clorita": 1
       },
+      "Anfibol": {
+        "Clorita": 4,
+        "Fe-óxido": 2
+      },
+      "Magnetita": {
+        "Clorita": 1
+      },
+      "Carbonato": {
+        "Mica blanca / sericita": 1,
+        "Clorita": 1
+      },
       "K-feldespato-sericita-Fe-óxido": {
         "K-feldespato": 1
       }
@@ -237,7 +267,7 @@
   "metrics": {
     "pct_fe_gt10": 38.1,
     "pct_cu_gt270": 31.8,
-    "pct_na_depleted": 100.0,
+    "pct_na_depleted": 79.6,
     "n_magsus_mt": 51,
     "n_mb_magnetite_gt5": 429,
     "n_mb_hematite_gt5": 412,
