@@ -63,7 +63,7 @@ function renderKpis() {
   const m = SUMMARY.metrics;
   const items = [
     [SUMMARY.n_samples.toLocaleString("es"), "muestras comparadas"],
-    [SUMMARY.n_holes, "sondajes (43 en el CSV)"],
+    [SUMMARY.n_holes, "sondajes"],
     [`${m.spectral_mb_agree_pct} %`, "acuerdo TSA y familia de masa"],
     [`${m.high_cu_w2200_in_window_pct} %`, "Cu alto en la ventana w2200"],
   ];
