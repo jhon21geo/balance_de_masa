@@ -177,6 +177,18 @@ ul.tight li { margin: 8px 0; }
   overflow: hidden;
 }
 
+.pdf-btn {
+  display: inline-block;
+  margin: 8px 12px 0 0;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--copper);
+  color: #fffaf2;
+  text-decoration: none;
+  font-weight: 600;
+}
+.pdf-btn:hover { background: var(--copper-deep); }
+
 .callout {
   margin-top: 16px;
   padding: 14px 16px;
