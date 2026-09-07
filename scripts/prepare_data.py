@@ -128,16 +128,16 @@ def parse_csv(path: Path):
     return rows
 
 
-def molar_k_al(k, al):
-    if k is None or al is None or al <= 0:
-        return None
-    return (k / 39.098) / (al / 26.982)
+MW_NA2O = 61.9789
+MW_K2O = 94.196
+MW_AL2O3 = 101.9613
 
 
-def molar_na_al(na, al):
-    if na is None or al is None or al <= 0:
+def molar_from_oxides(cation_oxide, al2o3, cation_mw):
+    """Molar cation/Al from wt% oxides (Na2O or K2O vs Al2O3). The 2-cation factor cancels."""
+    if cation_oxide is None or al2o3 is None or al2o3 <= 0:
         return None
-    return (na / 22.990) / (al / 26.982)
+    return (cation_oxide / cation_mw) / (al2o3 / MW_AL2O3)
 
 
 def ger_class(k_al, na_al):
@@ -299,13 +299,12 @@ def main():
     valid_by_spec = defaultdict(Counter)
 
     for r in rows:
-        k = num(r["K_pct"])
-        na = num(r["Na_pct"])
         al = num(r["Al_pct"])
         fe = num(r["Fe_pct"])
         magsus = num(r["MagSus_MSUS"])
-        k_al = molar_k_al(k, al)
-        na_al = molar_na_al(na, al)
+        # Na_pct is all zeros in the GeoIA export; use Na2O/K2O/Al2O3 like the Fabris GER.
+        k_al = molar_from_oxides(num(r["K2O_pct"]), num(r["Al2O3_pct"]), MW_K2O)
+        na_al = molar_from_oxides(num(r["Na2O_pct"]), num(r["Al2O3_pct"]), MW_NA2O)
         ger = ger_class(k_al, na_al)
         spec = spectral_family(r["Grp1_sTSAS"], r["Min1_sTSAS"])
         mb, mb_val, buckets = mb_family(r)
