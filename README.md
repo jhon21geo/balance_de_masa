@@ -10,6 +10,10 @@ Sitio público (GitHub Pages):
 
 **https://jhon21geo.github.io/balance_de_masa/**
 
+Informe original (PDF, 21 MB): **https://jhon21geo.github.io/balance_de_masa/RB201300014.pdf**
+
+El PDF se descargó del [catálogo SARIG](https://catalog.sarig.sa.gov.au/document/d20010635) (registro `d20010635`, Geological Survey of South Australia / Department for Energy and Mining). Copia oficial: [RB201300014.pdf en mesac-public](https://demstedpprodaue12.blob.core.windows.net/mesac-public/resources/files/4347046/RB201300014.pdf). PID: <https://pid.sarig.sa.gov.au/document/d20010635>. Licencia del catálogo: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
 Para trabajar en local (los `fetch` de JSON no funcionan como `file://`):
 
 ```bash
@@ -28,10 +32,10 @@ Luego abre `http://localhost:8080`.
 
 | Archivo | Rol |
 | --- | --- |
-| `RB201300014.pdf` | Informe original (GSSA / DMITRE, 2013) |
+| `docs/RB201300014.pdf` | Informe Fabris et al. 2013, copiado desde SARIG `d20010635` |
 | `Resultado_Balance_Mineral.csv` | Geoquímica + TSA + modos de balance |
 | `scripts/prepare_data.py` | Reconstruye clases GER/TSA y escribe `docs/data/*.json` |
-| `docs/` | Sitio público |
+| `docs/` | Sitio público (GitHub Pages) |
 
 Cita del informe:
 
@@ -39,4 +43,4 @@ Cita del informe:
 
 ## Licencia
 
-MIT (código del visor). El report book sigue siendo © Government of South Australia 2013; aquí solo se usan figuras para comparación y se cita la fuente.
+MIT (código del visor). El Report Book 2013/00014 es una publicación del Government of South Australia; en el catálogo SARIG figura con licencia [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Aquí se redistribuye con atribución.
