@@ -158,6 +158,11 @@
               <td>La misma química, convertida a % de 34 minerales en <a href="https://geoia.site/balance/">geoia.site/balance</a></td>
             </tr>
             <tr>
+              <td>Condición analítica</td>
+              <td>Digestión de 4 ácidos (ICP) para Cu y trazas; fusión de borato de litio para mayores (Al<sub>2</sub>O<sub>3</sub>, Na<sub>2</sub>O, K<sub>2</sub>O, Fe<sub>2</sub>O<sub>3</sub>, SiO<sub>2</sub>…), Genalysis §3.1</td>
+              <td>El balance de masa exige esa química casi total. Agua regia o 2 ácidos no disuelven bien los silicatos: K/Al, Na/Al y los % minerales quedarían sesgados</td>
+            </tr>
+            <tr>
               <td>Cómo clasifica</td>
               <td>Relación potasio/aluminio y sodio/aluminio, mineral del espectro y umbral magnético</td>
               <td>Nombres tipo pórfido (fílica, argílica, propilítica, potásica) y % de cada mineral</td>
@@ -211,42 +216,59 @@
     </section>
 
     <section class="section wrap" id="graficos">
-      <h2>Los diagramas del informe, recreados con el CSV</h2>
-      <p class="note">En cada fila: recreación a la izquierda, figura del informe a la derecha. Mismo tamaño, misma escala y leyenda arriba a la derecha.</p>
+      <h2>Cross-plots y ternario K–Na–Al, recreados con el CSV</h2>
+      <p class="note">En cada fila: recreación a la izquierda, figura del informe a la derecha. Mismo tamaño y leyenda arriba a la derecha. Los nombres siguen el uso de GeoIA: <strong>cross-plot</strong> (dos ejes) o <strong>ternario</strong> (tres componentes).</p>
 
-      <h3>Potasio y sodio respecto al aluminio</h3>
+      <aside class="condition">
+        <h3>Condición analítica: digestión de 4 ácidos (química casi total)</h3>
+        <p>
+          Estos gráficos y el balance de masa solo tienen sentido si la química de la roca es casi total.
+          El informe (Genalysis, §3.1) usó <strong>digestión de 4 ácidos</strong> (ICP-OES/MS) para Cu y elementos traza,
+          y fusión de borato de litio para los mayores (SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>, Na<sub>2</sub>O, K<sub>2</sub>O, Fe<sub>2</sub>O<sub>3</sub>…).
+        </p>
+        <p>
+          Un ensayo de agua regia o de 2 ácidos no vale aquí: no disuelve bien los silicatos, así que Al, Na, K y parte del Fe quedan cortos.
+          Entonces el cross-plot K/Al vs Na/Al, el ternario K–Na–Al y los % de mica, feldespato o clorita del balance salen sesgados.
+        </p>
+      </aside>
+
+      <h3><span class="kind-tag">Cross-plot</span> K/Al vs Na/Al</h3>
+      <p class="chart-sub">Forma en dos ejes del ternario K–Na–Al (feldespato-K, albita, mica). Color = mineral principal que calcula el balance (sin cuarzo).</p>
       <div class="pair">
         <figure>
           <div class="plot-box"><div id="ger" class="chart"></div></div>
-          <figcaption class="fig-cap">Color = mineral principal del balance (sin cuarzo). Ejes 0–1, leyenda arriba a la derecha.</figcaption>
+          <figcaption class="fig-cap">Ejes 0–1, leyenda arriba a la derecha. Izquierda = poco sodio (alteración); derecha = más sodio.</figcaption>
         </figure>
         <figure>
           <div class="plot-box">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: campos de K-feldespato, moscovita, clorita y albita" />
+              <img src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: cross-plot GER K/Al vs Na/Al por tipo de roca" />
             </div>
           </div>
-          <figcaption class="fig-cap">Figura 8 del informe. Leyenda arriba a la derecha: tipo de roca. Izquierda = alteración (poco sodio); derecha vacía = roca poco alterada.</figcaption>
+          <figcaption class="fig-cap">Figura 8 del informe (cross-plot GER). Leyenda: tipo de roca. La nube a la izquierda es alteración; la derecha vacía, roca poco alterada.</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> El informe colorea por litología. El balance pone el mineral principal en cada punto e incluye feldespato potásico y cuarzo, que el espectrómetro no ve (484 muestras con feldespato dominante frente a 81 en el informe).</p>
 
-      <h3 style="margin-top:32px">El mismo diagrama, coloreado por la mezcla de minerales</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> K/Al vs Na/Al — mezcla de minerales</h3>
+      <p class="chart-sub">El mismo cross-plot GER, ahora coloreado por la mezcla espectro + química (como la Fig. 12). Sigue siendo la proyección del ternario K–Na–Al.</p>
       <div class="pair">
         <figure>
           <div class="plot-box"><div id="gertsa" class="chart"></div></div>
-          <figcaption class="fig-cap">Mismos ejes y misma posición de leyenda. Color = mezcla espectro + química, como en la figura de al lado.</figcaption>
+          <figcaption class="fig-cap">Mismos ejes 0–1 y misma posición de leyenda que la figura de al lado.</figcaption>
         </figure>
         <figure>
           <div class="plot-box">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig12_espectral_geoquimica.png" alt="Figura 12: clasificación combinada espectral y geoquímica" />
+              <img src="assets/figs/fig12_espectral_geoquimica.png" alt="Figura 12 del informe: cross-plot GER coloreado por mezcla mineral" />
             </div>
           </div>
           <figcaption class="fig-cap">Figura 12 del informe. Leyenda arriba a la derecha: mezcla de minerales.</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> Replica el cross-plot con las mismas reglas de mezcla y, además, entrega el % de cada mineral en el pozo (sección de sondajes), no solo el nombre de la mezcla.</p>
       <div class="area-legend">
-        <strong>Qué es cada zona del diagrama (Fig. 12)</strong>
+        <strong>Qué es cada zona del ternario proyectado (Fig. 12)</strong>
         <ul>
           <li><b>Arriba a la izquierda</b> (mucho potasio, casi sin sodio): feldspato potásico.</li>
           <li><b>A media altura a la izquierda</b> (marca «Mu», K/Al ≈ 0,33): moscovita / sericita.</li>
@@ -256,80 +278,91 @@
         </ul>
       </div>
 
-      <h3 style="margin-top:32px">Hierro frente a aluminio</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> Fe vs Al</h3>
+      <p class="chart-sub">Hierro frente a aluminio. Color = mineral del espectro. Condición: Fe y Al de fusión / 4 ácidos, no de agua regia.</p>
       <div class="pair">
         <figure>
           <div class="plot-box"><div id="feal" class="chart"></div></div>
-          <figcaption class="fig-cap">Eje X: aluminio. Eje Y: hierro. Color = mineral del espectro. Leyenda arriba a la derecha.</figcaption>
+          <figcaption class="fig-cap">Eje X: Al (%). Eje Y: Fe (%). Leyenda arriba a la derecha.</figcaption>
         </figure>
         <figure>
           <div class="plot-box">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig10_fe_al.png" alt="Figura 10 del informe: Fe frente a Al, color por mineral SWIR" />
+              <img src="assets/figs/fig10_fe_al.png" alt="Figura 10 del informe: cross-plot Fe vs Al, color por mineral SWIR" />
             </div>
           </div>
-          <figcaption class="fig-cap">Figura 10 del informe. Leyenda arriba a la derecha: mineral del espectro (sericita, clorita, anfibol…).</figcaption>
+          <figcaption class="fig-cap">Figura 10 del informe. Leyenda: mineral del espectro (sericita, clorita, anfibol…).</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> Convierte el Fe químico en % de magnetita y hematita (r = 0,98 con el hierro). El espectro solo nombra el mineral de la banda; el balance cuantifica los óxidos de Fe.</p>
 
-      <h3 style="margin-top:32px">Cobre y la banda de la mica (~2200 nm)</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> Cu vs banda de la mica (~2200 nm)</h3>
+      <p class="chart-sub">Cobre (digestión de 4 ácidos) frente a la posición de la banda de la mica. Líneas en 2206 y 2221 nm.</p>
       <div class="pair">
         <figure>
           <div class="plot-box"><div id="cuw22" class="chart"></div></div>
-          <figcaption class="fig-cap">Cobre 0–50 000 ppm. Líneas en 2206 y 2221 nm. Leyenda arriba a la derecha.</figcaption>
+          <figcaption class="fig-cap">Cobre 0–50 000 ppm. Leyenda arriba a la derecha.</figcaption>
         </figure>
         <figure>
           <div class="plot-box">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig20_cu_w2200.png" alt="Figura 20: Cu en X y w2200 en Y" />
+              <img src="assets/figs/fig20_cu_w2200.png" alt="Figura 20 del informe: cross-plot Cu vs w2200" />
             </div>
           </div>
-          <figcaption class="fig-cap">Figura 20 del informe. Leyenda arriba a la derecha. Círculo abierto = magnetita.</figcaption>
+          <figcaption class="fig-cap">Figura 20 del informe. Círculo abierto = magnetita.</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> Confirma el vector del informe (90 % del Cu alto cae en 2206–2221 nm) y colorea cada punto con la mezcla mineral, no solo con el espectro.</p>
 
-      <h3 style="margin-top:32px">Cobre y la banda de la clorita (~2250 nm)</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> Cu vs banda de la clorita (~2250 nm)</h3>
+      <p class="chart-sub">Cobre (digestión de 4 ácidos) frente a la banda de la clorita. Línea en 2246 nm.</p>
       <div class="pair">
         <figure>
           <div class="plot-box"><div id="cuw25" class="chart"></div></div>
-          <figcaption class="fig-cap">Cobre 0–25 000 ppm. Línea en 2246 nm. Leyenda arriba a la derecha.</figcaption>
+          <figcaption class="fig-cap">Cobre 0–25 000 ppm. Leyenda arriba a la derecha.</figcaption>
         </figure>
         <figure>
           <div class="plot-box">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig23_cu_w2250.png" alt="Figura 23: Cu en X y w2250 en Y" />
+              <img src="assets/figs/fig23_cu_w2250.png" alt="Figura 23 del informe: cross-plot Cu vs w2250" />
             </div>
           </div>
-          <figcaption class="fig-cap">Figura 23 del informe. Leyenda arriba a la derecha. Cobre alto sobre 2246 nm.</figcaption>
+          <figcaption class="fig-cap">Figura 23 del informe. Cobre alto sobre 2246 nm.</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> El 97 % del Cu alto cae en la ventana de clorita férrea. El balance añade el % de clorita y de óxidos de Fe en esos mismos tramos.</p>
 
-      <h3 style="margin-top:32px">Qué tan magnética es cada muestra</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> susceptibilidad magnética vs sondaje</h3>
+      <p class="chart-sub">Qué tan magnética es cada muestra (escala logarítmica). Círculo abierto = umbral de magnetita del informe.</p>
       <div class="pair">
         <figure>
           <div class="plot-box tall"><div id="magsus" class="chart tall"></div></div>
-          <figcaption class="fig-cap">Escala logarítmica. Círculo abierto = umbral de magnetita. Leyenda arriba a la derecha.</figcaption>
+          <figcaption class="fig-cap">Izquierda de la línea: hematita. Derecha: magnetita. Leyenda a la derecha.</figcaption>
         </figure>
         <figure>
           <div class="plot-box tall">
             <div class="fig-frame fill">
-              <img src="assets/figs/fig13_magsus.png" alt="Figura 13: susceptibilidad magnética por sondaje" />
+              <img src="assets/figs/fig13_magsus.png" alt="Figura 13 del informe: cross-plot de susceptibilidad magnética por sondaje" />
             </div>
           </div>
-          <figcaption class="fig-cap">Figura 13 del informe. Leyenda arriba a la derecha. Izquierda de la línea: hematita; derecha: magnetita.</figcaption>
+          <figcaption class="fig-cap">Figura 13 del informe. Izquierda de la línea: hematita; derecha: magnetita.</figcaption>
         </figure>
       </div>
+      <p class="aporte"><strong>Aporte del balance de masa.</strong> El informe marca magnetita con un umbral magnético (51 muestras). El balance, con el Fe de la fusión / 4 ácidos, calcula % de magnetita en 430 muestras (&gt;5 %). Ahí está el desacuerdo principal.</p>
 
-      <h3 style="margin-top:32px">Mineral del espectro frente al del balance</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Comparación</span> mineral del espectro vs mineral del balance</h3>
+      <p class="chart-sub">No es un cross-plot: cada celda cuenta muestras. La diagonal es donde espectro y balance eligen el mismo mineral.</p>
       <div class="card">
         <div id="heat" class="chart tall"></div>
-        <p class="fig-cap">Cada celda cuenta muestras. Si espectro y balance eligen el mismo mineral, caen en la diagonal.</p>
+        <p class="aporte"><strong>Aporte del balance de masa.</strong> Mide el acuerdo muestra a muestra (33 %). El desfase está sobre todo en feldespato potásico y magnetita, minerales que el espectro no cuantifica.</p>
       </div>
 
-      <h3 style="margin-top:32px">Cobre y número de anomalías (Tabla 4)</h3>
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> Cu vs índice Tabla 4</h3>
+      <p class="chart-sub">Cobre (4 ácidos) frente a cuántos elementos superan 10 veces la corteza. Color = alteración GeoIA.</p>
       <div class="card">
         <div id="t4" class="chart"></div>
-        <p class="fig-cap">Eje X: cobre. Eje Y: cuántos elementos superan 10 veces la corteza (Au, Ag, As, Ba, Bi, Ce, Cu, La, Sb, Se, Te, Mo, W).</p>
+        <p class="fig-cap">Eje Y: Au, Ag, As, Ba, Bi, Ce, Cu, La, Sb, Se, Te, Mo, W (umbrales de la Tabla 4).</p>
+        <p class="aporte"><strong>Aporte del balance de masa.</strong> El informe lista anomalías. El balance añade la clase de alteración (fílica, argílica, propilítica, potásica) sobre el mismo cobre.</p>
       </div>
     </section>
 
@@ -382,6 +415,7 @@
         </p>
         <p>
           Los umbrales geoquímicos copian la Tabla 4 del informe (10 veces la abundancia cortical de Rudnick y Gao, 2003).
+          La química del informe (§3.1) combina digestión de 4 ácidos (Cu y trazas) y fusión de borato de litio (mayores): esa es la condición para los cross-plots y para el balance de masa.
           Las figuras a la derecha de cada gráfico se extrajeron del PDF original para facilitar la comparación visual; el informe sigue siendo la referencia.
         </p>
         <p class="note">
