@@ -309,7 +309,9 @@
       "t4": 6.0,
       "conc": 1,
       "disc": 2,
-      "mt": 26.49
+      "mt": 26.49,
+      "chem": "Propilitica",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "AD8",
@@ -322,7 +324,9 @@
       "t4": 1.79,
       "conc": 11,
       "disc": 3,
-      "mt": 6.47
+      "mt": 6.47,
+      "chem": "Propilitica",
+      "asm": "K-feldespato-sericita"
     },
     {
       "id": "ASD1",
@@ -335,7 +339,9 @@
       "t4": 0.74,
       "conc": 3,
       "disc": 3,
-      "mt": 4.12
+      "mt": 4.12,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "ASD2",
@@ -348,7 +354,9 @@
       "t4": 1.71,
       "conc": 3,
       "disc": 1,
-      "mt": 2.12
+      "mt": 2.12,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "CAR01",
@@ -361,7 +369,9 @@
       "t4": 2.67,
       "conc": 0,
       "disc": 1,
-      "mt": 7.22
+      "mt": 7.22,
+      "chem": "Indefinida",
+      "asm": "Sericita-Fe-óxido"
     },
     {
       "id": "CAR02",
@@ -374,7 +384,9 @@
       "t4": 10.68,
       "conc": 5,
       "disc": 0,
-      "mt": 20.53
+      "mt": 20.53,
+      "chem": "Indefinida",
+      "asm": "Sericita-Fe-óxido"
     },
     {
       "id": "CHRCD001",
@@ -387,7 +399,9 @@
       "t4": 0.38,
       "conc": 7,
       "disc": 3,
-      "mt": 1.1
+      "mt": 1.1,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "CSD1",
@@ -400,7 +414,9 @@
       "t4": 1.75,
       "conc": 2,
       "disc": 0,
-      "mt": 9.63
+      "mt": 9.63,
+      "chem": "Propilitica",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "DRD1",
@@ -413,7 +429,9 @@
       "t4": 2.77,
       "conc": 6,
       "disc": 3,
-      "mt": 4.8
+      "mt": 4.8,
+      "chem": "Argilica",
+      "asm": "Sericita"
     },
     {
       "id": "EC_21",
@@ -426,7 +444,9 @@
       "t4": 1.29,
       "conc": 2,
       "disc": 2,
-      "mt": 2.14
+      "mt": 2.14,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "FH_AFMECO_TO_MW23_5",
@@ -439,7 +459,9 @@
       "t4": 0.5,
       "conc": 1,
       "disc": 1,
-      "mt": 1.07
+      "mt": 1.07,
+      "chem": "Argilica",
+      "asm": "Sericita"
     },
     {
       "id": "GHDD6",
@@ -452,7 +474,9 @@
       "t4": 6.24,
       "conc": 11,
       "disc": 6,
-      "mt": 2.39
+      "mt": 2.39,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "HHD1_HHD1W1_1",
@@ -465,7 +489,9 @@
       "t4": 2.14,
       "conc": 6,
       "disc": 1,
-      "mt": 4.31
+      "mt": 4.31,
+      "chem": "Argilica",
+      "asm": "Sericita"
     },
     {
       "id": "HL002",
@@ -478,7 +504,9 @@
       "t4": 0.17,
       "conc": 0,
       "disc": 0,
-      "mt": 2.49
+      "mt": 2.49,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "HWD1",
@@ -491,7 +519,9 @@
       "t4": 4.16,
       "conc": 21,
       "disc": 3,
-      "mt": 6.2
+      "mt": 6.2,
+      "chem": "Potasica",
+      "asm": "K-feldespato"
     },
     {
       "id": "IHAD1",
@@ -504,7 +534,9 @@
       "t4": 2.56,
       "conc": 8,
       "disc": 0,
-      "mt": 10.84
+      "mt": 10.84,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "IHAD2",
@@ -517,7 +549,9 @@
       "t4": 3.04,
       "conc": 5,
       "disc": 6,
-      "mt": 8.75
+      "mt": 8.75,
+      "chem": "Indefinida",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "IHAD3",
@@ -530,7 +564,9 @@
       "t4": 5.53,
       "conc": 1,
       "disc": 0,
-      "mt": 22.34
+      "mt": 22.34,
+      "chem": "Indefinida",
+      "asm": "Sericita-Fe-óxido"
     },
     {
       "id": "IHAD5",
@@ -543,7 +579,9 @@
       "t4": 3.23,
       "conc": 37,
       "disc": 64,
-      "mt": 8.31
+      "mt": 8.31,
+      "chem": "Indefinida",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "IHAD6",
@@ -556,7 +594,9 @@
       "t4": 1.74,
       "conc": 28,
       "disc": 5,
-      "mt": 3.52
+      "mt": 3.52,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "IHAD8",
@@ -569,7 +609,9 @@
       "t4": 2.75,
       "conc": 7,
       "disc": 0,
-      "mt": 10.48
+      "mt": 10.48,
+      "chem": "Propilitica",
+      "asm": "Sericita-Fe-óxido"
     },
     {
       "id": "MDD004",
@@ -582,7 +624,9 @@
       "t4": 0.5,
       "conc": 1,
       "disc": 1,
-      "mt": 2.66
+      "mt": 2.66,
+      "chem": "Indefinida",
+      "asm": "Sericita-clorita"
     },
     {
       "id": "MGD_35",
@@ -595,7 +639,9 @@
       "t4": 1.25,
       "conc": 11,
       "disc": 8,
-      "mt": 2.42
+      "mt": 2.42,
+      "chem": "Potasica",
+      "asm": "Sericita"
     },
     {
       "id": "MGD_44",
@@ -608,7 +654,9 @@
       "t4": 2.61,
       "conc": 9,
       "disc": 3,
-      "mt": 3.27
+      "mt": 3.27,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "PINDARI_1",
@@ -621,7 +669,9 @@
       "t4": 0.17,
       "conc": 3,
       "disc": 0,
-      "mt": 4.46
+      "mt": 4.46,
+      "chem": "Propilitica",
+      "asm": "Clorita"
     },
     {
       "id": "PSC_4_SASC_2",
@@ -634,7 +684,9 @@
       "t4": 0.75,
       "conc": 2,
       "disc": 0,
-      "mt": 1.69
+      "mt": 1.69,
+      "chem": "Argilica",
+      "asm": "Sericita"
     },
     {
       "id": "PSC_7_SASC_3",
@@ -647,7 +699,9 @@
       "t4": 0.67,
       "conc": 0,
       "disc": 1,
-      "mt": 2.1
+      "mt": 2.1,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "PY4",
@@ -660,7 +714,9 @@
       "t4": 0.76,
       "conc": 1,
       "disc": 0,
-      "mt": 2.21
+      "mt": 2.21,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "SAE10",
@@ -673,7 +729,9 @@
       "t4": 0.54,
       "conc": 0,
       "disc": 0,
-      "mt": 2.6
+      "mt": 2.6,
+      "chem": "Indefinida",
+      "asm": "Sericita-clorita"
     },
     {
       "id": "SAE11",
@@ -686,7 +744,9 @@
       "t4": 1.83,
       "conc": 14,
       "disc": 9,
-      "mt": 9.08
+      "mt": 9.08,
+      "chem": "Indefinida",
+      "asm": "Sericita-magnetita"
     },
     {
       "id": "SAE3",
@@ -699,7 +759,9 @@
       "t4": 3.6,
       "conc": 16,
       "disc": 5,
-      "mt": 16.11
+      "mt": 16.11,
+      "chem": "Indefinida",
+      "asm": "Sericita-Fe-óxido"
     },
     {
       "id": "SAE4",
@@ -712,7 +774,9 @@
       "t4": 2.6,
       "conc": 18,
       "disc": 6,
-      "mt": 8.26
+      "mt": 8.26,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "SAE6",
@@ -725,7 +789,9 @@
       "t4": 3.19,
       "conc": 22,
       "disc": 5,
-      "mt": 11.16
+      "mt": 11.16,
+      "chem": "Potasica",
+      "asm": "Sericita"
     },
     {
       "id": "SAE7",
@@ -738,7 +804,9 @@
       "t4": 1.15,
       "conc": 4,
       "disc": 1,
-      "mt": 17.25
+      "mt": 17.25,
+      "chem": "Indefinida",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "SAE8",
@@ -751,7 +819,9 @@
       "t4": 1.29,
       "conc": 3,
       "disc": 4,
-      "mt": 2.26
+      "mt": 2.26,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "SAE9",
@@ -764,7 +834,9 @@
       "t4": 0.58,
       "conc": 0,
       "disc": 0,
-      "mt": 2.08
+      "mt": 2.08,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "TD_1",
@@ -777,7 +849,9 @@
       "t4": 4.78,
       "conc": 0,
       "disc": 7,
-      "mt": 13.82
+      "mt": 13.82,
+      "chem": "Filica",
+      "asm": "K-feldespato-Fe-óxido"
     },
     {
       "id": "VANGUARD_1",
@@ -790,7 +864,9 @@
       "t4": 1.0,
       "conc": 1,
       "disc": 0,
-      "mt": 1.26
+      "mt": 1.26,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "WC05D001",
@@ -803,7 +879,9 @@
       "t4": 0.14,
       "conc": 8,
       "disc": 7,
-      "mt": 2.39
+      "mt": 2.39,
+      "chem": "Argilica",
+      "asm": "Sericita"
     },
     {
       "id": "WHD_1",
@@ -816,7 +894,9 @@
       "t4": 3.17,
       "conc": 1,
       "disc": 1,
-      "mt": 3.07
+      "mt": 3.07,
+      "chem": "Indefinida",
+      "asm": "Sericita"
     },
     {
       "id": "WJD1",
@@ -829,7 +909,9 @@
       "t4": 3.62,
       "conc": 12,
       "disc": 8,
-      "mt": 25.91
+      "mt": 25.91,
+      "chem": "Propilitica",
+      "asm": "Clorita-magnetita"
     },
     {
       "id": "WPDD2",
@@ -842,7 +924,9 @@
       "t4": 4.48,
       "conc": 14,
       "disc": 10,
-      "mt": 4.1
+      "mt": 4.1,
+      "chem": "Propilitica",
+      "asm": "Clorita-Fe-óxido"
     },
     {
       "id": "WWDD1",
@@ -855,7 +939,9 @@
       "t4": 2.52,
       "conc": 5,
       "disc": 20,
-      "mt": 1.1
+      "mt": 1.1,
+      "chem": "Filica",
+      "asm": "Sericita"
     }
   ]
 }

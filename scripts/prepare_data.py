@@ -388,6 +388,8 @@ def main():
 
     hole_sum = []
     for hid, ss in sorted(holes.items()):
+        chem_mode = Counter(s["chem"] for s in ss).most_common(1)[0][0]
+        asm_mode = Counter(s["asm"] for s in ss).most_common(1)[0][0]
         hole_sum.append(
             {
                 "id": hid,
@@ -401,6 +403,8 @@ def main():
                 "conc": sum(1 for s in ss if s["val"] == "Concordante"),
                 "disc": sum(1 for s in ss if s["val"] == "Discordante"),
                 "mt": round(mean([s["mt"] for s in ss]) or 0, 2),
+                "chem": chem_mode,
+                "asm": asm_mode,
             }
         )
 
