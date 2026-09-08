@@ -60,7 +60,34 @@ const layoutBase = {
   font: { family: "Figtree, Segoe UI, sans-serif", color: "#1f2937", size: 12 },
   margin: { t: 36, r: 10, b: 48, l: 54 },
   autosize: true,
+  dragmode: "pan",
+  hovermode: "closest",
 };
+
+function isNarrow() {
+  return window.matchMedia("(max-width: 960px)").matches;
+}
+
+function plotCfg() {
+  return {
+    responsive: true,
+    displaylogo: false,
+    displayModeBar: isNarrow(),
+    scrollZoom: true,
+    doubleClick: "reset",
+    modeBarButtonsToRemove: ["lasso2d", "select2d"],
+  };
+}
+
+function setupNav() {
+  const toggle = document.getElementById("nav-open");
+  if (!toggle) return;
+  document.querySelectorAll(".site-nav a").forEach((a) => {
+    a.addEventListener("click", () => {
+      toggle.checked = false;
+    });
+  });
+}
 
 const legendInside = {
   orientation: "v",
@@ -104,6 +131,7 @@ async function load() {
   ]);
   SAMPLES = samples;
   SUMMARY = summary;
+  setupNav();
   renderKpis();
   renderMaps();
   renderGer();
@@ -199,7 +227,11 @@ function renderMaps() {
       maxZoom: 12,
     });
 
-  const map = L.map("map", { scrollWheelZoom: false }).setView(view.center, view.zoom);
+  const map = L.map("map", {
+    scrollWheelZoom: false,
+    touchZoom: true,
+    bounceAtZoomLimits: false,
+  }).setView(view.center, view.zoom);
   tiles().addTo(map);
   SUMMARY.holes.forEach((h) => {
     const t4 = h.t4 || 0;
@@ -214,7 +246,11 @@ function renderMaps() {
   ]);
   watchMapSize(map, $("map"));
 
-  const mapAlt = L.map("mapAlt", { scrollWheelZoom: false }).setView(view.center, view.zoom);
+  const mapAlt = L.map("mapAlt", {
+    scrollWheelZoom: false,
+    touchZoom: true,
+    bounceAtZoomLimits: false,
+  }).setView(view.center, view.zoom);
   tiles().addTo(mapAlt);
   SUMMARY.holes.forEach((h) => attachHoleMarker(mapAlt, h, colorOf(h.chem)));
   addMapLegend(mapAlt, "Alteración (GeoIA)", [
@@ -281,7 +317,7 @@ function renderGer() {
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -298,7 +334,7 @@ function renderGerTsa() {
       shapes: gerShapes(),
       annotations: gerAnnotations(),
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -313,7 +349,7 @@ function renderFeAl() {
       xaxis: { title: "Al (%)", range: [0, 15] },
       yaxis: { title: "Fe (%)", range: [0, 65] },
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -337,7 +373,7 @@ function renderCuW() {
         { x: 1500, y: 2221, text: "2221 nm", showarrow: false, font: { size: 10 }, xanchor: "left", yshift: 10 },
       ],
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 
   const chl = SAMPLES.filter((s) => s.cu != null && s.cu > 0 && s.w25 != null);
@@ -357,7 +393,7 @@ function renderCuW() {
         { x: 800, y: 2246, text: "2246 nm", showarrow: false, font: { size: 10 }, xanchor: "left", yshift: -10 },
       ],
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -411,7 +447,7 @@ function renderMagsus() {
         { x: 30000, y: 1.02, yref: "paper", text: "magnetita", showarrow: false, font: { size: 11, color: "#2563eb" } },
       ],
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -445,7 +481,7 @@ function renderHeat() {
         showarrow: false,
         align: "center",
         font: {
-          size: 11,
+          size: isNarrow() ? 8 : 11,
           family: "Figtree, Segoe UI, sans-serif",
           color: v >= 40 ? "#111827" : "#f8fafc",
         },
@@ -468,13 +504,13 @@ function renderHeat() {
     ],
     withAxes({
       ...layoutBase,
-      margin: { t: 48, r: 72, b: 110, l: 190 },
+      margin: { t: 48, r: 72, b: isNarrow() ? 90 : 110, l: isNarrow() ? 120 : 190 },
       title: { text: "Comparación · Espectro vs balance de masa", font: { size: 14 } },
       xaxis: { title: "Mineral principal del balance", tickangle: -22 },
       yaxis: { title: "Mineral del espectro", autorange: "reversed" },
       annotations,
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -505,7 +541,7 @@ function renderT4() {
       xaxis: { title: "Cu (ppm)" },
       yaxis: { title: "N.º de elementos anómalos", dtick: 1 },
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 }
 
@@ -570,7 +606,7 @@ function drawHole(id) {
       legend: { orientation: "h", y: -0.16 },
       margin: { t: 40, r: 10, b: 70, l: 60 },
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 
   Plotly.newPlot(
@@ -587,7 +623,7 @@ function drawHole(id) {
       yaxis: { title: "Profundidad (m)", autorange: "reversed" },
       legend: { orientation: "h", y: -0.16 },
     }),
-    { responsive: true, displayModeBar: false }
+    plotCfg()
   );
 
   const h = SUMMARY.holes.find((x) => x.id === id);
@@ -601,4 +637,15 @@ load().catch((err) => {
     "beforeend",
     `<p class="wrap">No se pudieron cargar los datos: ${err}</p>`
   );
+});
+
+function resizePlots() {
+  if (!window.Plotly) return;
+  document.querySelectorAll(".js-plotly-plot").forEach((el) => {
+    Plotly.Plots.resize(el);
+  });
+}
+
+window.addEventListener("orientationchange", () => {
+  setTimeout(resizePlots, 250);
 });

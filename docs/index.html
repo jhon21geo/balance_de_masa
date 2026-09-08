@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Caso de estudio I · Informe IOCG 2013 frente al balance de masa</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <meta name="description" content="Caso de estudio I: comparación del Report Book 2013/00014 (Fabris et al., Gawler oriental) con el balance mineral de las mismas 1 225 muestras. CSV y PDF públicos." />
@@ -14,23 +14,24 @@
 </head>
 <body>
   <header class="topbar">
+    <input type="checkbox" id="nav-open" class="menu-toggle" autocomplete="off" />
     <div class="brand">
-      Balance de masa e informe IOCG
+      <span class="brand-full">Balance de masa e informe IOCG</span>
+      <span class="brand-short">Caso de estudio I</span>
       <small>Caso de estudio I · Gawler oriental</small>
     </div>
-    <div class="topbar-end">
-      <nav>
-        <a href="#hallazgos">Comparación</a>
-        <a href="#metodos">Cómo se leyó</a>
-        <a href="#mapa">Mapa</a>
-        <a href="#graficos">Gráficos</a>
-        <a href="#sondajes">Sondajes</a>
-        <a href="#fuentes">Fuentes</a>
-        <a href="Resultado_Balance_Mineral.csv">CSV</a>
-        <a href="Caso_estudio_I_informe_2013_vs_balance.pdf">PDF LinkedIn</a>
-        <a href="RB201300014.pdf">Informe PDF</a>
-      </nav>
-      <nav class="social" aria-label="Redes profesionales de Jhonatan Mallma">
+    <nav class="site-nav" id="site-nav" aria-label="Secciones">
+      <a href="#hallazgos">Comparación</a>
+      <a href="#metodos">Cómo se leyó</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#graficos">Gráficos</a>
+      <a href="#sondajes">Sondajes</a>
+      <a href="#fuentes">Fuentes</a>
+      <a href="Resultado_Balance_Mineral.csv">CSV</a>
+      <a href="Caso_estudio_I_informe_2013_vs_balance.pdf">PDF LinkedIn</a>
+      <a href="RB201300014.pdf">Informe PDF</a>
+    </nav>
+    <nav class="social" aria-label="Redes profesionales de Jhonatan Mallma">
         <a href="https://www.linkedin.com/in/geomin" target="_blank" rel="me noopener noreferrer" title="LinkedIn · Jhonatan Mallma">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12M7.12 20.45H3.56V9h3.56zM22.23 0H1.77C.8 0 0 .77 0 1.73v20.54C0 23.22.8 24 1.77 24h20.46c.98 0 1.77-.78 1.77-1.73V1.73C24 .77 23.21 0 22.23 0"/></svg>
           <span class="sr-only">LinkedIn</span>
@@ -47,8 +48,12 @@
           <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 2v.5l-8 5.2L4 6.5V6zm0 12H4V8.7l7.4 4.8a1.2 1.2 0 0 0 1.2 0L20 8.7z"/></svg>
           <span class="sr-only">Correo</span>
         </a>
-      </nav>
-    </div>
+    </nav>
+    <label class="menu-btn" for="nav-open">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="menu-open">Menú</span>
+      <span class="menu-close">Cerrar</span>
+    </label>
   </header>
 
   <main>
@@ -67,15 +72,15 @@
         characterisation of alteration, geochemical associations and exploration vectors</em>
         (RB201300014).
       </p>
-      <p>
+      <div class="hero-actions">
         <a class="pdf-btn" href="RB201300014.pdf">Informe 2013 (PDF)</a>
         <a class="pdf-btn csv-btn" href="Resultado_Balance_Mineral.csv" download>CSV del balance</a>
         <a class="pdf-btn geoia-btn" href="https://geoia.site/balance/">Módulo GeoIA / balance</a>
         <a class="pdf-btn li-btn" href="Caso_estudio_I_informe_2013_vs_balance.pdf">PDF para LinkedIn</a>
-        <span class="note"> Informe: catálogo SARIG
-          <a href="https://catalog.sarig.sa.gov.au/document/d20010635">d20010635</a>.
-          CSV: 1 225 muestras, generado en <a href="https://geoia.site/balance/">geoia.site/balance</a>.
-        </span>
+      </div>
+      <p class="note"> Informe: catálogo SARIG
+        <a href="https://catalog.sarig.sa.gov.au/document/d20010635">d20010635</a>.
+        CSV: 1 225 muestras, generado en <a href="https://geoia.site/balance/">geoia.site/balance</a>.
       </p>
       <div class="kpis" id="kpis"></div>
     </section>
@@ -118,7 +123,7 @@
           </p>
         </article>
       </div>
-      <div class="card" style="margin-top:18px">
+      <div class="card table-scroll" style="margin-top:18px">
         <table class="stats">
           <thead>
             <tr>
@@ -170,7 +175,7 @@
         No son dos campañas distintas: son dos formas de mirar las mismas muestras.
         El informe nombra la alteración. El CSV calcula porcentajes de minerales.
       </p>
-      <div class="card methods">
+      <div class="card methods table-scroll">
         <table>
           <thead>
             <tr>
@@ -213,6 +218,7 @@
     <section class="section wrap" id="mapa">
       <h2>Ubicación de los sondajes</h2>
       <p class="note">Los dos mapas cubren la misma zona. A la izquierda, cuántos elementos salen anómalos. A la derecha, la alteración más frecuente en cada pozo (GeoIA). Un clic abre el sondaje.</p>
+      <p class="zoom-hint">En el celular: pellizca para acercar y arrastra con un dedo. Los dos mapas se apilan.</p>
       <div class="pair">
         <figure>
           <div id="map" class="map-box"></div>
@@ -246,6 +252,7 @@
     <section class="section wrap" id="graficos">
       <h2>Cross-plots y ternario K–Na–Al, recreados con el CSV</h2>
       <p class="note">En cada fila: recreación a la izquierda, figura del informe a la derecha. Mismo tamaño y leyenda arriba a la derecha. Los nombres siguen el uso de GeoIA: <strong>cross-plot</strong> (dos ejes) o <strong>ternario</strong> (tres componentes).</p>
+      <p class="zoom-hint">En el celular: desliza el gráfico de lado a lado o pellizca para ampliar. La barra de herramientas del gráfico sirve para zoom y para volver al encuadre.</p>
 
       <aside class="condition">
         <h3>Condición analítica: digestión de 4 ácidos (química casi total)</h3>
@@ -380,14 +387,14 @@
 
       <h3 style="margin-top:32px"><span class="kind-tag">Comparación</span> Mineral del espectro vs mineral del balance</h3>
       <p class="chart-sub">Cada celda muestra el número de muestras y el % del total (n = 1 225). La diagonal es donde espectro y balance eligen el mismo mineral.</p>
-      <div class="card">
+      <div class="card pan-zoom">
         <div id="heat" class="chart tall"></div>
         <p class="aporte"><strong>Aporte del balance de masa.</strong> Cada celda es n muestras y su % sobre las 1 225. En la diagonal coinciden, entre otras: mica 240 (19,6 %) y clorita 94 (7,7 %). El acuerdo en las muestras con mineral del espectro comparable es 33 %. El desfase está sobre todo en feldespato potásico y magnetita, que el espectro no cuantifica.</p>
       </div>
 
       <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> Cu vs índice Tabla 4</h3>
       <p class="chart-sub">Cobre (4 ácidos) frente a cuántos elementos superan 10 veces la corteza. Color = alteración GeoIA.</p>
-      <div class="card">
+      <div class="card pan-zoom">
         <div id="t4" class="chart"></div>
         <p class="fig-cap">Eje Y: Au, Ag, As, Ba, Bi, Ce, Cu, La, Sb, Se, Te, Mo, W (umbrales de la Tabla 4).</p>
         <p class="aporte"><strong>Aporte del balance de masa.</strong> El informe lista anomalías. El balance añade la clase de alteración (fílica, argílica, propilítica, potásica) sobre el mismo cobre.</p>
@@ -414,8 +421,8 @@
         </label>
       </div>
       <div class="grid-2">
-        <div class="card"><div id="downMinerals" class="chart tall"></div></div>
-        <div class="card"><div id="downChems" class="chart tall"></div></div>
+        <div class="card pan-zoom"><div id="downMinerals" class="chart tall"></div></div>
+        <div class="card pan-zoom"><div id="downChems" class="chart tall"></div></div>
       </div>
       <p id="holeMeta" class="note"></p>
     </section>
