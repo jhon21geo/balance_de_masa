@@ -275,7 +275,7 @@ function renderGer() {
     withAxes({
       ...layoutBase,
       legend: legendInside,
-      title: { text: "Potasio / aluminio frente a sodio / aluminio", font: { size: 14 } },
+      title: { text: "Cross-plot · K/Al vs Na/Al", font: { size: 14 } },
       xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false },
       yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false },
       shapes: gerShapes(),
@@ -292,7 +292,7 @@ function renderGerTsa() {
     withAxes({
       ...layoutBase,
       legend: legendInside,
-      title: { text: "Mismo diagrama, color = mezcla del informe", font: { size: 14 } },
+      title: { text: "Cross-plot · K/Al vs Na/Al (mezcla del informe)", font: { size: 13 } },
       xaxis: { title: "Na/Al (molar)", range: [0, 1], zeroline: false },
       yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false },
       shapes: gerShapes(),
@@ -309,7 +309,7 @@ function renderFeAl() {
     withAxes({
       ...layoutBase,
       legend: legendInside,
-      title: { text: "Hierro frente a aluminio", font: { size: 14 } },
+      title: { text: "Cross-plot · Fe vs Al", font: { size: 14 } },
       xaxis: { title: "Al (%)", range: [0, 15] },
       yaxis: { title: "Fe (%)", range: [0, 65] },
     }),
@@ -325,7 +325,7 @@ function renderCuW() {
     withAxes({
       ...layoutBase,
       legend: legendInside,
-      title: { text: "Banda de la mica (~2200 nm) frente a cobre", font: { size: 14 } },
+      title: { text: "Cross-plot · Cu vs banda de la mica", font: { size: 14 } },
       xaxis: { title: "Cu (ppm)", range: [0, 50000] },
       yaxis: { title: "Posición de la banda de la mica (nm)", range: [2195, 2227.5] },
       shapes: [
@@ -347,7 +347,7 @@ function renderCuW() {
     withAxes({
       ...layoutBase,
       legend: legendInside,
-      title: { text: "Banda de la clorita (~2250 nm) frente a cobre", font: { size: 14 } },
+      title: { text: "Cross-plot · Cu vs banda de la clorita", font: { size: 14 } },
       xaxis: { title: "Cu (ppm)", range: [0, 25000] },
       yaxis: { title: "Posición de la banda de la clorita (nm)", range: [2240, 2263] },
       shapes: [
@@ -400,7 +400,7 @@ function renderMagsus() {
         tracegroupgap: 0,
       },
       margin: { t: 36, r: 168, b: 48, l: 72 },
-      title: { text: "Susceptibilidad magnética por sondaje", font: { size: 14 } },
+      title: { text: "Cross-plot · susceptibilidad magnética vs sondaje", font: { size: 13 } },
       xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log", range: [-2, 5] },
       yaxis: { title: "Sondaje", categoryorder: "array", categoryarray: holes.slice().reverse() },
       shapes: [
@@ -437,6 +437,7 @@ function renderHeat() {
     withAxes({
       ...layoutBase,
       margin: { t: 36, r: 10, b: 90, l: 180 },
+      title: { text: "Comparación · espectro vs balance de masa", font: { size: 14 } },
       xaxis: { title: "Mineral principal del balance", tickangle: -25 },
       yaxis: { title: "Mineral del espectro", autorange: "reversed" },
     }),
@@ -467,7 +468,7 @@ function renderT4() {
     ],
     withAxes({
       ...layoutBase,
-      title: { text: "Índice de anomalías (Tabla 4) frente a cobre", font: { size: 15 } },
+      title: { text: "Cross-plot · Cu vs índice Tabla 4", font: { size: 14 } },
       xaxis: { title: "Cu (ppm)" },
       yaxis: { title: "N.º de elementos anómalos", dtick: 1 },
     }),
