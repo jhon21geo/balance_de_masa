@@ -542,6 +542,7 @@ footer a:hover { text-decoration: underline; }
     z-index: 30;
     flex: none;
     flex-direction: column;
+    flex-wrap: nowrap;
     align-items: stretch;
     justify-content: flex-start;
     gap: 0;
