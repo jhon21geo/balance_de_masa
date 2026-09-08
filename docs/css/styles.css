@@ -317,6 +317,7 @@ h3 .kind-tag { margin-right: 10px; }
   min-height: 420px;
 }
 .chart.tall { min-height: 520px; }
+#heat.chart.tall { min-height: 580px; }
 #map, #mapAlt { height: 460px; width: 100%; border-radius: 12px; }
 .map-legend {
   background: rgba(255, 255, 255, 0.96);
