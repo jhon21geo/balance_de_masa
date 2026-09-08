@@ -400,7 +400,7 @@ function renderMagsus() {
         tracegroupgap: 0,
       },
       margin: { t: 36, r: 168, b: 48, l: 72 },
-      title: { text: "Cross-plot · susceptibilidad magnética vs sondaje", font: { size: 13 } },
+      title: { text: "Cross-plot · Susceptibilidad magnética vs sondaje", font: { size: 13 } },
       xaxis: { title: "Susceptibilidad magnética (×10⁻⁵ SI)", type: "log", range: [-2, 5] },
       yaxis: { title: "Sondaje", categoryorder: "array", categoryarray: holes.slice().reverse() },
       shapes: [
@@ -420,8 +420,38 @@ function renderHeat() {
   const rows = Object.keys(mat);
   const colsSet = new Set();
   rows.forEach((r) => Object.keys(mat[r]).forEach((c) => colsSet.add(c)));
-  const cols = [...colsSet];
+  const preferred = [
+    "Fe-óxido",
+    "K-feldespato",
+    "Mica blanca / sericita",
+    "Clorita",
+    "Calc-silicato",
+    "Sulfuro Cu",
+    "Carbonato",
+  ];
+  const cols = [...preferred.filter((c) => colsSet.has(c)), ...[...colsSet].filter((c) => !preferred.includes(c))];
   const z = rows.map((r) => cols.map((c) => mat[r][c] || 0));
+  const total = z.flat().reduce((a, b) => a + b, 0) || 1;
+  const annotations = [];
+  rows.forEach((r, i) => {
+    cols.forEach((c, j) => {
+      const v = z[i][j];
+      if (!v) return;
+      const pct = ((100 * v) / total).toFixed(1).replace(".", ",");
+      annotations.push({
+        x: c,
+        y: r,
+        text: `<b>${v}</b><br>${pct} %`,
+        showarrow: false,
+        align: "center",
+        font: {
+          size: 11,
+          family: "Figtree, Segoe UI, sans-serif",
+          color: v >= 40 ? "#111827" : "#f8fafc",
+        },
+      });
+    });
+  });
   Plotly.newPlot(
     "heat",
     [
@@ -431,15 +461,18 @@ function renderHeat() {
         y: rows,
         type: "heatmap",
         colorscale: DENSITY_COLORSCALE,
-        hovertemplate: "%{y} → %{x}: %{z}<extra></extra>",
+        colorbar: { title: "muestras", len: 0.82 },
+        hovertemplate: "%{y} → %{x}<br>%{z} muestras (%{customdata} %)<extra></extra>",
+        customdata: z.map((row) => row.map((v) => ((100 * v) / total).toFixed(1).replace(".", ","))),
       },
     ],
     withAxes({
       ...layoutBase,
-      margin: { t: 36, r: 10, b: 90, l: 180 },
-      title: { text: "Comparación · espectro vs balance de masa", font: { size: 14 } },
-      xaxis: { title: "Mineral principal del balance", tickangle: -25 },
+      margin: { t: 48, r: 72, b: 110, l: 190 },
+      title: { text: "Comparación · Espectro vs balance de masa", font: { size: 14 } },
+      xaxis: { title: "Mineral principal del balance", tickangle: -22 },
       yaxis: { title: "Mineral del espectro", autorange: "reversed" },
+      annotations,
     }),
     { responsive: true, displayModeBar: false }
   );
@@ -531,7 +564,7 @@ function drawHole(id) {
     withAxes({
       ...layoutBase,
       barmode: "stack",
-      title: { text: `${id} · minerales del balance`, font: { size: 15 } },
+      title: { text: `${id} · Minerales del balance`, font: { size: 15 } },
       xaxis: { title: "% en peso", range: [0, 100] },
       yaxis: { title: "Profundidad (m)", autorange: "reversed" },
       legend: { orientation: "h", y: -0.16 },
@@ -549,7 +582,7 @@ function drawHole(id) {
     ],
     withAxes({
       ...layoutBase,
-      title: { text: `${id} · química e índice de anomalías`, font: { size: 15 } },
+      title: { text: `${id} · Química e índice de anomalías`, font: { size: 15 } },
       xaxis: { title: "Fe %  ·  Cu/100  ·  índice×4" },
       yaxis: { title: "Profundidad (m)", autorange: "reversed" },
       legend: { orientation: "h", y: -0.16 },
