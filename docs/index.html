@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Informe Fabris 2013 y balance mineral · Gawler oriental</title>
+  <title>Caso de estudio I · Informe IOCG 2013 frente al balance de masa</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <meta name="description" content="Comparación entre el Report Book 2013/00014 (Fabris et al.) y la mineralogía por balance de masa de los mismos sondajes IOCG del este del Cratón Gawler." />
+  <meta name="description" content="Caso de estudio I: comparación del Report Book 2013/00014 (Fabris et al., Gawler oriental) con el balance mineral de las mismas 1 225 muestras. CSV y PDF públicos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet" />
@@ -16,7 +16,7 @@
   <header class="topbar">
     <div class="brand">
       Balance de masa e informe IOCG
-      <small>Gawler oriental · datos públicos</small>
+      <small>Caso de estudio I · Gawler oriental</small>
     </div>
     <div class="topbar-end">
       <nav>
@@ -26,6 +26,8 @@
         <a href="#graficos">Gráficos</a>
         <a href="#sondajes">Sondajes</a>
         <a href="#fuentes">Fuentes</a>
+        <a href="Resultado_Balance_Mineral.csv">CSV</a>
+        <a href="Caso_estudio_I_informe_2013_vs_balance.pdf">PDF LinkedIn</a>
         <a href="RB201300014.pdf">Informe PDF</a>
       </nav>
       <nav class="social" aria-label="Redes profesionales de Jhonatan Mallma">
@@ -51,22 +53,28 @@
 
   <main>
     <section class="hero wrap">
-      <span class="kicker">Comparación</span>
-      <h1>Qué dice el informe de 2013 y qué calcula el balance mineral</h1>
+      <span class="kicker">Caso de estudio I</span>
+      <h1>El informe IOCG de 2013 frente al balance de masa</h1>
       <p class="lede">
-        En 2013, Fabris y su equipo estudiaron la alteración de rocas con cobre y oro
-        en el este del Cratón Gawler. Usaron análisis químicos, un espectrómetro de
-        testigo (HyLogger) y medidas de qué tan magnética es la roca.
-        El archivo <code>Resultado_Balance_Mineral.csv</code> sale del módulo
-        <a href="https://geoia.site/balance/">geoia.site/balance</a>: a partir de la
-        misma química estima cuánto hay de cada mineral. Aquí se comparan las dos lecturas.
+        El Report Book 2013/00014 (Fabris, Halley, van der Wielen, Keeping y Gordon)
+        describe la mineralización estilo IOCG del este del Cratón Gawler, en Australia del Sur:
+        cómo se altera la roca, qué elementos van juntos y qué señales sirven para explorar.
+        Aquí se comparan esos resultados con un <strong>balance de masa</strong> calculado
+        sobre la misma química: no solo el nombre de la mezcla, sino cuánto hay de cada mineral.
+      </p>
+      <p class="cite-line">
+        Informe: <em>IOCG-style mineralisation in the central eastern Gawler Craton, SA;
+        characterisation of alteration, geochemical associations and exploration vectors</em>
+        (RB201300014).
       </p>
       <p>
-        <a class="pdf-btn" href="RB201300014.pdf">Leer el informe PDF (21 MB)</a>
+        <a class="pdf-btn" href="RB201300014.pdf">Informe 2013 (PDF)</a>
+        <a class="pdf-btn csv-btn" href="Resultado_Balance_Mineral.csv" download>CSV del balance</a>
         <a class="pdf-btn geoia-btn" href="https://geoia.site/balance/">Módulo GeoIA / balance</a>
-        <span class="note"> PDF: catálogo SARIG
+        <a class="pdf-btn li-btn" href="Caso_estudio_I_informe_2013_vs_balance.pdf">PDF para LinkedIn</a>
+        <span class="note"> Informe: catálogo SARIG
           <a href="https://catalog.sarig.sa.gov.au/document/d20010635">d20010635</a>.
-          CSV: obtenido en <a href="https://geoia.site/balance/">geoia.site/balance</a>.
+          CSV: 1 225 muestras, generado en <a href="https://geoia.site/balance/">geoia.site/balance</a>.
         </span>
       </p>
       <div class="kpis" id="kpis"></div>
@@ -388,7 +396,15 @@
 
     <section class="section wrap" id="sondajes">
       <h2>Explorar un sondaje</h2>
-      <p class="note">La profundidad aumenta hacia abajo. A la izquierda, los minerales que calcula el balance. A la derecha, hierro, cobre y el índice de anomalías.</p>
+      <p class="note">La profundidad aumenta hacia abajo. A la izquierda, los minerales que calcula el balance. A la derecha, hierro, cobre (digestión de 4 ácidos) y el índice de anomalías del informe.</p>
+      <p class="aporte">
+        <strong>Aporte del balance de masa.</strong>
+        El informe nombra la mezcla y cuenta anomalías. El balance entrega el
+        <strong>% en peso</strong> de mica, clorita, feldespato, cuarzo, magnetita y hematita
+        en cada tramo. El espectrómetro no ve feldespato ni cuarzo; el informe no da cantidades.
+        En IHAD1, por ejemplo, el pico de Fe cerca de 920 m se traduce en hematita y calc-silicato,
+        no solo en un nombre de alteración.
+      </p>
       <div class="filters">
         <label>Prospecto
           <select id="prospect"></select>
@@ -427,11 +443,15 @@
         </p>
         <p>
           <strong>Origen del CSV de balance.</strong>
-          <code>Resultado_Balance_Mineral.csv</code> se obtuvo en el módulo
+          <a href="Resultado_Balance_Mineral.csv"><code>Resultado_Balance_Mineral.csv</code></a>
+          se obtuvo en el módulo
           <a href="https://geoia.site/balance/">https://geoia.site/balance/</a>
           (Balance mineral y zonación de alteración, GeoIA). Ese módulo estima el porcentaje
           de cada mineral y una clase de alteración (fílica, argílica, propilítica o potásica),
           que aquí se comparan con el informe.
+          Descarga directa:
+          <a href="Resultado_Balance_Mineral.csv">Resultado_Balance_Mineral.csv</a>
+          (1 225 muestras).
         </p>
         <p>
           Los umbrales geoquímicos copian la Tabla 4 del informe (10 veces la abundancia cortical de Rudnick y Gao, 2003).

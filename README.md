@@ -8,6 +8,10 @@ Las dos fuentes describen los mismos 1 225 intervalos de 43 sondajes del este 
 
 Sitio público (GitHub Pages): **https://jhon21geo.github.io/balance_de_masa/**
 
+CSV del balance: **https://jhon21geo.github.io/balance_de_masa/Resultado_Balance_Mineral.csv**
+
+PDF para LinkedIn (caso de estudio I): **https://jhon21geo.github.io/balance_de_masa/Caso_estudio_I_informe_2013_vs_balance.pdf**
+
 Informe original (PDF, 21 MB): **https://jhon21geo.github.io/balance_de_masa/RB201300014.pdf**
 
 El PDF se descargó del [catálogo SARIG](https://catalog.sarig.sa.gov.au/document/d20010635) (registro `d20010635`, Geological Survey of South Australia / Department for Energy and Mining). Copia oficial: [RB201300014.pdf en mesac-public](https://demstedpprodaue12.blob.core.windows.net/mesac-public/resources/files/4347046/RB201300014.pdf). PID: <https://pid.sarig.sa.gov.au/document/d20010635>. Licencia del catálogo: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).

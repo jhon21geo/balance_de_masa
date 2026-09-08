@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Caso de estudio I · Informe 2013 vs balance de masa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1f2937;
+      --soft: #4b5563;
+      --navy: #131a2b;
+      --gold: #e6a23c;
+      --ok: #166534;
+      --line: #e5e7eb;
+      --paper: #f7f8fb;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: #fff; color: var(--ink); font-family: Figtree, sans-serif; }
+    @page { size: 13.333in 7.5in; margin: 0; }
+    .slide {
+      width: 13.333in;
+      height: 7.5in;
+      padding: 0.55in 0.7in;
+      page-break-after: always;
+      break-after: page;
+      overflow: hidden;
+      position: relative;
+    }
+    .slide:last-child { page-break-after: auto; }
+    .kicker {
+      display: inline-block;
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #1e3a8a;
+      border: 1px solid #c7d2fe;
+      background: #eef2ff;
+      border-radius: 999px;
+      padding: 5px 12px;
+      margin-bottom: 14px;
+    }
+    h1 { font-family: Fraunces, Georgia, serif; font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
+    h2 { font-family: Fraunces, Georgia, serif; font-size: 32px; margin: 0 0 18px; }
+    p, li { font-size: 20px; line-height: 1.45; color: var(--soft); }
+    .cover {
+      background: var(--navy);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cover h1, .cover p, .cover .kicker { color: #fff; }
+    .cover .kicker { background: transparent; border-color: rgba(255,255,255,.35); color: var(--gold); }
+    .cover .sub { font-size: 22px; max-width: 28ch; color: #cbd5e1; }
+    .cover .cite { font-size: 16px; color: #94a3b8; max-width: 70ch; }
+    .meta { display: flex; justify-content: space-between; font-size: 16px; color: #94a3b8; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px 24px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 22px; }
+    .card.ok { border-left: 6px solid #67c23a; }
+    .card.diff { border-left: 6px solid #f56c6c; }
+    .card.gold { border-left: 6px solid var(--gold); background: #fffbeb; }
+    .nums { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+    .num { background: var(--paper); border-radius: 14px; padding: 18px; border: 1px solid var(--line); }
+    .num b { display: block; font-family: Fraunces, serif; font-size: 34px; }
+    .num span { color: var(--soft); font-size: 15px; }
+    ul { margin: 0; padding-left: 22px; }
+    li { margin: 8px 0; }
+    .fig {
+      max-height: 4.6in;
+      width: 100%;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .foot {
+      position: absolute;
+      left: 0.7in;
+      right: 0.7in;
+      bottom: 0.32in;
+      font-size: 13px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+    }
+    a { color: #2563eb; }
+    .links a { display: block; margin: 10px 0; font-size: 20px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <section class="slide cover">
+    <div>
+      <div class="kicker">Caso de estudio I</div>
+      <h1>El informe IOCG de 2013<br>frente al balance de masa</h1>
+      <p class="sub">Mismos sondajes del este del Cratón Gawler. El informe nombra la alteración. El balance calcula el porcentaje de cada mineral.</p>
+    </div>
+    <div>
+      <p class="cite">Fabris et al., 2013. <em>IOCG-style mineralisation in the central eastern Gawler Craton, SA; characterisation of alteration, geochemical associations and exploration vectors</em>. Report Book 2013/00014.</p>
+      <div class="meta">
+        <span>Jhonatan Mallma · GeoIA</span>
+        <span>geoia.site/balance · jhon21geo.github.io/balance_de_masa</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Qué se compara</div>
+    <h2>Dos lecturas de las mismas 1 225 muestras</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Informe 2013</h3>
+        <p>Química de roca, espectro de testigo y susceptibilidad magnética. Nombra mezclas (sericita, clorita, magnetita…) y lista elementos anómalos (Tabla 4).</p>
+      </div>
+      <div class="card gold">
+        <h3>Aporte del balance de masa</h3>
+        <p>La misma química se convierte en % de 34 minerales. Aparecen cuarzo y feldespato potásico, que el espectrómetro no ve, y una cantidad —no solo un umbral— para magnetita y hematita.</p>
+      </div>
+    </div>
+    <div class="nums">
+      <div class="num"><b>1 225</b><span>muestras</span></div>
+      <div class="num"><b>43</b><span>sondajes</span></div>
+      <div class="num"><b>33 %</b><span>mismo mineral principal</span></div>
+      <div class="num"><b>4 ácidos</b><span>Cu y trazas (casi total)</span></div>
+    </div>
+    <div class="foot"><span>Caso de estudio I · RB201300014 vs GeoIA</span><span>2 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Dónde coinciden</div>
+    <h2>La historia geológica es la misma</h2>
+    <div class="grid2">
+      <div class="card ok">
+        <h3>Alteración</h3>
+        <ul>
+          <li>Casi 8 de cada 10 muestras perdieron sodio.</li>
+          <li>Lo más frecuente en el espectro: mica blanca y clorita férrea.</li>
+          <li>Más fengita que moscovita.</li>
+        </ul>
+      </div>
+      <div class="card ok">
+        <h3>Cobre y espectro</h3>
+        <ul>
+          <li>90 % del Cu alto cae en la banda de la mica (2206–2221 nm).</li>
+          <li>97 % en la banda de clorita (≥ 2246 nm).</li>
+          <li>El Fe químico y los óxidos del balance van juntos (r = 0,98).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot"><span>Caso de estudio I · RB201300014 vs GeoIA</span><span>3 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Aporte del balance de masa</div>
+    <h2>Lo que el informe no cuantifica</h2>
+    <div class="grid2">
+      <div class="card gold">
+        <h3>Feldespato y cuarzo</h3>
+        <p>El espectro no los ve. El balance sí: ~32 % de cuarzo y ~17 % de feldespato en promedio. Feldespato dominante en 484 muestras frente a 81 en el informe.</p>
+      </div>
+      <div class="card diff">
+        <h3>Magnetita</h3>
+        <p>El informe usa un umbral magnético (51 muestras). El balance, con el hierro de la fusión / 4 ácidos, pone más de 5 % de magnetita en 430. Ahí está el desacuerdo principal.</p>
+      </div>
+    </div>
+    <p style="margin-top:22px">En el pozo, el balance entrega el perfil mineral metro a metro. El informe entrega el nombre de la mezcla y el índice de anomalías. Las dos capas se leen juntas.</p>
+    <div class="foot"><span>Caso de estudio I · RB201300014 vs GeoIA</span><span>4 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Condición analítica</div>
+    <h2>Tiene que ser química casi total</h2>
+    <div class="card gold" style="max-width:none">
+      <p>El informe (Genalysis, §3.1) usó <strong>digestión de 4 ácidos</strong> para Cu y trazas, y fusión de borato de litio para los mayores (SiO<sub>2</sub>, Al<sub>2</sub>O<sub>3</sub>, Na<sub>2</sub>O, K<sub>2</sub>O, Fe<sub>2</sub>O<sub>3</sub>…).</p>
+      <p>Agua regia o 2 ácidos no disuelven bien los silicatos. Entonces K/Al, Na/Al y los % de mica, feldespato o clorita del balance salen sesgados.</p>
+    </div>
+    <p style="margin-top:20px">Esa es la condición para los cross-plots GER (K/Al vs Na/Al, proyección del ternario K–Na–Al) y para el balance mineral.</p>
+    <div class="foot"><span>Caso de estudio I · RB201300014 vs GeoIA</span><span>5 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Cross-plot · K/Al vs Na/Al</div>
+    <h2>Misma geometría que la Figura 8 del informe</h2>
+    <div class="grid2">
+      <img class="fig" src="assets/figs/fig8_ger.png" alt="Figura 8 del informe: cross-plot GER K/Al vs Na/Al" />
+      <div>
+        <p>Eje Y: K/Al molar. Eje X: Na/Al molar. Es la forma en dos ejes del ternario K–Na–Al.</p>
+        <ul>
+          <li>Izquierda: poco sodio = alteración.</li>
+          <li>Arriba: feldespato potásico.</li>
+          <li>Media altura: sericita / moscovita.</li>
+          <li>El informe colorea por tipo de roca. El balance colorea por el mineral principal, incluido el feldespato.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot"><span>Caso de estudio I · RB201300014 vs GeoIA</span><span>6 / 7</span></div>
+  </section>
+
+  <section class="slide">
+    <div class="kicker">Datos abiertos</div>
+    <h2>Visor, CSV y el informe original</h2>
+    <div class="links">
+      <a href="https://jhon21geo.github.io/balance_de_masa/">Sitio · jhon21geo.github.io/balance_de_masa</a>
+      <a href="https://jhon21geo.github.io/balance_de_masa/Resultado_Balance_Mineral.csv">CSV del balance · 1 225 muestras</a>
+      <a href="https://jhon21geo.github.io/balance_de_masa/RB201300014.pdf">Informe 2013 · RB201300014.pdf</a>
+      <a href="https://geoia.site/balance/">Módulo · geoia.site/balance</a>
+      <a href="https://www.linkedin.com/in/geomin">LinkedIn · Jhonatan Mallma</a>
+      <a href="https://github.com/jhon21geo/balance_de_masa">Código · github.com/jhon21geo/balance_de_masa</a>
+    </div>
+    <div class="foot"><span>Caso de estudio I · CC BY 4.0 el informe SARIG · visor MIT</span><span>7 / 7</span></div>
+  </section>
+</body>
+</html>
