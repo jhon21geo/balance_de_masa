@@ -160,6 +160,58 @@ h1 { font-size: clamp(1.85rem, 3.8vw, 2.85rem); max-width: 22ch; }
   font-size: 0.78rem;
 }
 
+.kind-tag {
+  display: inline-block;
+  margin-right: 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e3a8a;
+  border: 1px solid #c7d2fe;
+  font-family: "Figtree", "Segoe UI", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 2px;
+}
+h3 .kind-tag { margin-right: 10px; }
+
+.chart-sub {
+  margin: 6px 0 14px;
+  max-width: 78ch;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.condition {
+  margin: 0 0 28px;
+  padding: 16px 18px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  box-shadow: var(--shadow);
+}
+.condition h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+}
+.condition p { margin: 0; font-size: 0.95rem; }
+.condition p + p { margin-top: 8px; }
+
+.aporte {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  color: #14532d;
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+.aporte strong { color: #166534; }
+
 .pair {
   display: grid;
   grid-template-columns: 1fr 1fr;
