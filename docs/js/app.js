@@ -108,6 +108,7 @@ async function load() {
   renderMaps();
   renderGer();
   renderGerTsa();
+  renderKkal();
   renderFeAl();
   renderCuW();
   renderMagsus();
@@ -261,9 +262,10 @@ function gerShapes() {
 
 function gerAnnotations() {
   return [
-    { x: 0.14, y: 0.96, text: "K-feldespato", showarrow: false, font: { size: 11 } },
-    { x: 0.14, y: 0.37, text: "sericita", showarrow: false, font: { size: 11 } },
+    { x: 0.14, y: 0.96, text: "K-feldespato / adularia", showarrow: false, font: { size: 11 } },
+    { x: 0.16, y: 0.37, text: "sericita / alunita", showarrow: false, font: { size: 11 } },
     { x: 0.88, y: 0.08, text: "albita", showarrow: false, font: { size: 11 } },
+    { x: 0.08, y: 0.06, text: "caolinita", showarrow: false, font: { size: 10, color: "#64748b" } },
     { x: 0.52, y: 0.52, text: "AF", showarrow: false, font: { size: 11, color: "#1e293b" } },
   ];
 }
@@ -297,6 +299,66 @@ function renderGerTsa() {
       yaxis: { title: "K/Al (molar)", range: [0, 1], zeroline: false },
       shapes: gerShapes(),
       annotations: gerAnnotations(),
+    }),
+    { responsive: true, displayModeBar: false }
+  );
+}
+
+function renderKkal() {
+  const rows = SAMPLES.filter((s) => s.kkal != null && s.kkca != null);
+  Plotly.newPlot(
+    "kkal",
+    tracesBy("mb", "kkal", "kkca", rows),
+    withAxes({
+      ...layoutBase,
+      legend: legendInside,
+      title: { text: "Cross-plot · K/(K+Ca) vs K/(K+Al)", font: { size: 14 } },
+      xaxis: { title: "K/(K+Al) (molar)", range: [0, 1], zeroline: false },
+      yaxis: { title: "K/(K+Ca) (molar)", range: [0, 1], zeroline: false },
+      shapes: [
+        {
+          type: "rect",
+          x0: 0.7,
+          x1: 1,
+          y0: 0.45,
+          y1: 1,
+          line: { color: "#8a5cf6", width: 1 },
+          fillcolor: "rgba(138,92,246,0.06)",
+        },
+        {
+          type: "rect",
+          x0: 0.15,
+          x1: 0.55,
+          y0: 0.4,
+          y1: 1,
+          line: { color: "#e6a23c", width: 1 },
+          fillcolor: "rgba(230,162,60,0.08)",
+        },
+        {
+          type: "rect",
+          x0: 0,
+          x1: 0.12,
+          y0: 0,
+          y1: 1,
+          line: { color: "#f56c6c", width: 1, dash: "dot" },
+          fillcolor: "rgba(245,108,108,0.05)",
+        },
+        {
+          type: "rect",
+          x0: 0,
+          x1: 0.55,
+          y0: 0,
+          y1: 0.32,
+          line: { color: "#67c23a", width: 1 },
+          fillcolor: "rgba(103,194,58,0.06)",
+        },
+      ],
+      annotations: [
+        { x: 0.86, y: 0.92, text: "K-feldespato / adularia", showarrow: false, font: { size: 11, color: "#6d28d9" } },
+        { x: 0.35, y: 0.92, text: "sericita / alunita", showarrow: false, font: { size: 11, color: "#b45309" } },
+        { x: 0.06, y: 0.5, text: "caolinita", textangle: -90, showarrow: false, font: { size: 10, color: "#b91c1c" } },
+        { x: 0.28, y: 0.12, text: "propilítica / calcita", showarrow: false, font: { size: 10, color: "#166534" } },
+      ],
     }),
     { responsive: true, displayModeBar: false }
   );
