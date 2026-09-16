@@ -24,6 +24,7 @@
         <a href="#metodos">Cómo se leyó</a>
         <a href="#mapa">Mapa</a>
         <a href="#graficos">Gráficos</a>
+        <a href="#indices">Pórfido, HS y LS</a>
         <a href="#sondajes">Sondajes</a>
         <a href="#fuentes">Fuentes</a>
         <a href="Resultado_Balance_Mineral.csv">CSV</a>
@@ -247,6 +248,25 @@
       <h2>Cross-plots y ternario K–Na–Al, recreados con el CSV</h2>
       <p class="note">En cada fila: recreación a la izquierda, figura del informe a la derecha. Mismo tamaño y leyenda arriba a la derecha. Los nombres siguen el uso de GeoIA: <strong>cross-plot</strong> (dos ejes) o <strong>ternario</strong> (tres componentes).</p>
 
+      <aside class="condition" id="indices">
+        <h3>Estos ejes sirven en pórfido, alta y baja sulfuración. Las cajas de color, no</h3>
+        <p>
+          K/Al, Na/Al y K/(K+Al) marcan <strong>minerales</strong>: feldespato potásico o adularia (K/Al ≈ 1),
+          mica o illita (K/Al ≈ 0,33), caolinita (casi 0), albita (Na/Al alto). Eso no es exclusivo de pórfido.
+          En baja sulfuración la adularia cae donde el pórfido pone “potásica”; la illita, donde pone “fílica”.
+          En alta sulfuración la caolinita y la pirofilita van al origen (argílica avanzada).
+        </p>
+        <p>
+          El problema es el <strong>nombre de la caja</strong>. GeoIA etiqueta fílica, argílica, propilítica y potásica
+          como en un pórfido. La alunita (alta sulfuración) tiene K/Al ≈ 0,33, igual que la sericita:
+          en el cross-plot de la derecha de GeoIA (K/(K+Ca) vs K/(K+Al)) ese cúmulo <em>no</em> hay que arrastrarlo
+          al recuadro potásico. Es mica o alunita. Para separarlas hace falta azufre o el espectro (alunita ≠ illita).
+          En este caso de estudio las 1 225 muestras son IOCG del Gawler, no un yacimiento HS/LS:
+          aquí se ve que las cajas de pórfido dejan el 58 % sin clasificar. Validar HS y LS con números
+          pide otros CSV públicos (química casi total + espectro).
+        </p>
+      </aside>
+
       <aside class="condition">
         <h3>Condición analítica: digestión de 4 ácidos (química casi total)</h3>
         <p>
@@ -303,6 +323,24 @@
           <li><b>Abajo a la izquierda</b> (origen, marca «Cd»): clorita.</li>
           <li><b>Abajo a la derecha</b> (mucho sodio): albita.</li>
           <li><b>Centro y derecha casi vacíos</b>: roca poco alterada (volcanitas GRV o granito Donington).</li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top:32px"><span class="kind-tag">Cross-plot</span> K/(K+Ca) vs K/(K+Al)</h3>
+      <p class="chart-sub">El mismo tipo de gráfico que en GeoIA (zonación potásica / fílica / propilítica). Aquí las etiquetas son minerales, no cajas de pórfido. Color = mineral del balance.</p>
+      <div class="card">
+        <div id="kkal" class="chart tall"></div>
+        <p class="fig-cap">Derecha (K/(K+Al) alto): feldespato potásico o adularia (LS). Centro (~0,25): sericita/illita <strong>y</strong> alunita (HS): no se separan en estos ejes. Izquierda (~0): caolinita / argílica avanzada. Abajo: más Ca (propilítica o calcita de LS).</p>
+        <p class="aporte"><strong>Qué no hacer.</strong> El cúmulo a la izquierda del recuadro «potásico» de GeoIA no se mueve a la derecha. Potásico/adularia es K/Al ≈ 1. Ese cúmulo es K/Al ≈ 0,33 (mica o alunita). En un pórfido se llama fílica; en HS puede ser alunita; en LS, illita.</p>
+      </div>
+      <div class="area-legend">
+        <strong>Misma posición, distinto nombre según el depósito</strong>
+        <ul>
+          <li><b>K-feldespato / adularia</b> (K/Al ≈ 1): pórfido potásico · baja sulfuración (adularia) · en IOCG, feldespato de alteración.</li>
+          <li><b>Mica / illita</b> (K/Al ≈ 0,33): pórfido fílica · LS sericita-adularia · no es HS salvo que el espectro o el S digan alunita.</li>
+          <li><b>Alunita</b> (K/Al ≈ 0,33): alta sulfuración. En el gráfico se monta sobre la sericita.</li>
+          <li><b>Caolinita / pirofilita</b> (K/Al ≈ 0): argílica de pórfido o argílica avanzada de HS.</li>
+          <li><b>Clorita + calcita</b>: propilítica de pórfido o ganga distal de LS.</li>
         </ul>
       </div>
 

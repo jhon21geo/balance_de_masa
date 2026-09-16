@@ -131,6 +131,7 @@ def parse_csv(path: Path):
 MW_NA2O = 61.9789
 MW_K2O = 94.196
 MW_AL2O3 = 101.9613
+MW_CAO = 56.0774
 
 
 def molar_from_oxides(cation_oxide, al2o3, cation_mw):
@@ -138,6 +139,41 @@ def molar_from_oxides(cation_oxide, al2o3, cation_mw):
     if cation_oxide is None or al2o3 is None or al2o3 <= 0:
         return None
     return (cation_oxide / cation_mw) / (al2o3 / MW_AL2O3)
+
+
+def molar_ca_over_al(cao, al2o3):
+    """Molar Ca/Al. CaO has one Ca; Al2O3 has two Al, so the 2-cation trick does not cancel."""
+    if cao is None or al2o3 is None or al2o3 <= 0:
+        return None
+    return (cao / MW_CAO) / (2.0 * al2o3 / MW_AL2O3)
+
+
+def k_over_k_plus_al_excess(k_al, na_al, ca_al):
+    """K/(K+Al_xs) with Al_xs = Al − Na − K − 2Ca (feldspar-normalized).
+
+    K-feldspar / adularia → ~1 (right-hand GeoIA ‘potassic’ box).
+    Muscovite / alunite → ~0.33. Kaolinite → ~0.
+    """
+    if k_al is None:
+        return None
+    na = na_al or 0.0
+    ca = ca_al or 0.0
+    al_xs = 1.0 - na - k_al - 2.0 * ca
+    if al_xs < 0:
+        al_xs = 0.0
+    den = k_al + al_xs
+    if den <= 0:
+        return None
+    return k_al / den
+
+
+def k_over_k_plus_ca(k_al, ca_al):
+    if k_al is None or ca_al is None:
+        return None
+    den = k_al + ca_al
+    if den <= 0:
+        return None
+    return k_al / den
 
 
 def ger_class(k_al, na_al):
@@ -305,6 +341,7 @@ def main():
         # Na_pct is all zeros in the GeoIA export; use Na2O/K2O/Al2O3 like the Fabris GER.
         k_al = molar_from_oxides(num(r["K2O_pct"]), num(r["Al2O3_pct"]), MW_K2O)
         na_al = molar_from_oxides(num(r["Na2O_pct"]), num(r["Al2O3_pct"]), MW_NA2O)
+        ca_al = molar_ca_over_al(num(r["CaO_pct"]), num(r["Al2O3_pct"]))
         ger = ger_class(k_al, na_al)
         spec = spectral_family(r["Grp1_sTSAS"], r["Min1_sTSAS"])
         mb, mb_val, buckets = mb_family(r)
@@ -363,6 +400,8 @@ def main():
                 "nrmse": round_or_none(num(r["VAL_NRMSE"]), 4),
                 "kal": round_or_none(k_al, 3),
                 "naal": round_or_none(na_al, 3),
+                "kkal": round_or_none(k_over_k_plus_al_excess(k_al, na_al, ca_al), 3),
+                "kkca": round_or_none(k_over_k_plus_ca(k_al, ca_al), 3),
                 "mt": round_or_none(num(r["M_Magnetita"]), 2),
                 "hm": round_or_none(num(r["M_Hematita"]), 2),
                 "msv": round_or_none(num(r["M_Muscovita"]), 2),
